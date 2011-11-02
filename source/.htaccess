@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule ^presentation-slides(.*)$ http://talks.lukecod.es$1 [L,R=301]
