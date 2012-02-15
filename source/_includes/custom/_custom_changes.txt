@@ -1,0 +1,9 @@
+- article.html
+-- dont show comments on home page
+-- titlecase for posts/pages
+
+- google_analytics.html
+-- add domain name, load time
+
+- javascripts/pinboard.js
+-- only show lukeloves tags
