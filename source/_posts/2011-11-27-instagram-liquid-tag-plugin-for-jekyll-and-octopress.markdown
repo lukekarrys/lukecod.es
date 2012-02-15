@@ -15,6 +15,8 @@ It is a simple liquid tag which takes one parameter, the ID of a media item from
 then fetches the media item using [Instagram's ruby gem](https://github.com/Instagram/instagram-ruby-gem),
 and writes a bunch of relevant HTML to the page.
 
+<!--more-->
+
 I currently have it displaying:
 
 - the 612x612 version of the image (which links to the photo on Instagram)

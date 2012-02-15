@@ -6,7 +6,9 @@ comments: true
 categories: yql, yahoo pipes, pitchfork, jsonp
 ---
 
-A [friend of mine](https://twitter.com/mcsheffrey) told me a few weeks ago that he wanted to make a Chrome plugin to display [Pitchfork](http://pitchfork.com) album scores on [Rdio](http://rdio.com) album pages. This seemed like an interesting idea to me, and I wanted to take a stab at the JavaScript for it.[^1] The following is a rundown of my thought process while researching the problem and the end result. Skip straight to a [JSFiddle demo](#p4k_demo) if words bore you.
+A [friend of mine](https://twitter.com/mcsheffrey) told me a few weeks ago that he wanted to make a Chrome plugin to display [Pitchfork](http://pitchfork.com) album scores on [Rdio](http://rdio.com) album pages. This seemed like an interesting idea to me, and I wanted to take a stab at the JavaScript for it. The following is a rundown of my thought process while researching the problem and the end result. Skip straight to a [JSFiddle demo](#p4k_demo) if words bore you.
+
+<!--more-->
 
 ## Steps
 
@@ -33,6 +35,4 @@ Staying the client-side spirit, I decided to use YQL and based my code off [Jame
 
 The demo currently pulls the artist and album search terms from the `#artist` and `#album` spans. Click the + button to edit the fiddle and try some of your own search terms. 
 
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/lukekarrys/vC4MN/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
-[^1] In my usual spirit of just wanting to do the fun part of the work, I thought I'd do the JS and Connor could implement it into a Chrome plugin :).
+{% jsfiddle vC4MN result,js,html %}
