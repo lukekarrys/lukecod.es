@@ -44,7 +44,7 @@ function Pinboard_Linkroll() {
     if (it.t.length > 0) {
       for (var i = 0; i < it.t.length; i++) {
         var tag = it.t[i];
-        if (tag.replace(/\s*/g,'') !== "lukecodes") {
+        if (!pinboard_tag || (pinboard_tag && tag.replace(/\s*/g,'') !== pinboard_tag)) {
           str += " <a class=\"pin-tag\" href=\"http://pinboard.in/u:"+ this.cook(it.a) + "/t:" + this.cook(tag) + "\">" + this.cook(tag).replace(/^\s+|\s+$/g, '') + "</a> ";
         }
       }
@@ -54,5 +54,5 @@ function Pinboard_Linkroll() {
   }
 }
 Pinboard_Linkroll.prototype = new Pinboard_Linkroll();
-pinboardNS_fetch_script("http://feeds.pinboard.in/json/v1/u:"+pinboard_user+"/t:lukecodes/?cb=pinboardNS_show_bmarks\&count="+pinboard_count);
+pinboardNS_fetch_script("http://feeds.pinboard.in/json/v1/u:"+pinboard_user+((pinboard_tag) ? "/t:"+pinboard_tag : "")+"/?cb=pinboardNS_show_bmarks\&count="+pinboard_count);
 
