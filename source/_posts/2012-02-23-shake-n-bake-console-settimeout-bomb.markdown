@@ -6,7 +6,7 @@ comments: true
 categories: [settimeout bomb, pranks]
 ---
 
-Apparently, everyone knows that setTimeout bombs are the best. I didn't until my friend [Tony Camp showed me](https://twitter.com/tonyjcamp/status/132632362268897282) but now I can see the light and it is great. This is something that I whipped up so you can throw it in the console of your best friend (or enemy) browser and try to give them a seizure. Everyone wins.
+Apparently, everyone knows that setTimeout console bombs are the best. I didn't until my friend [Tony Camp showed me](https://twitter.com/tonyjcamp/status/132632362268897282) but now I can see the light and I'm never going back. This is something that I whipped up so you can throw it in the console of your best friend (or enemy) and try to give them a seizure. Everyone wins.
 
 <!--more-->
 
@@ -17,8 +17,10 @@ Apparently, everyone knows that setTimeout bombs are the best. I didn't until my
   s=d.createElement('script');
   s.src="http://git.io/;)";
   d.getElementsByTagName('head')[0].appendChild(s);
-})(document,"LUKE",5000)
+})(document,"LUKE",2000)
 {% endcodeblock %}
+
+<a href="#" id="execute_code" onclick="(function(d,w,t){__word=w;__time=t;s=d.createElement('script');s.src='http://git.io/;)';d.getElementsByTagName('head')[0].appendChild(s);})(document,'LUKE',2000);jQuery('#execute_code').text('Wait for it...');return false;">Run this code!</a> The code will be executed on a 2 second delay, and you will have to refresh your browser after it executes :).
 
 The customizable parts are the last two parameters of the [IIFE](http://benalman.com/news/2010/11/immediately-invoked-function-expression/). The second one is the string (which automatically gets a space appended to it) that will replace every character inside of a text node on the page. The last parameter is the amount of time in milliseconds until the "bomb" goes off.
 
