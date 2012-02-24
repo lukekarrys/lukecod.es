@@ -6,9 +6,11 @@ comments: true
 categories: [yql, yahoopipes, pitchfork, jsonp]
 ---
 
-A [friend of mine](https://twitter.com/mcsheffrey) told me a few weeks ago that he wanted to make a Chrome plugin to display [Pitchfork](http://pitchfork.com) album scores on [Rdio](http://rdio.com) album pages. This seemed like an interesting idea to me, and I wanted to take a stab at the JavaScript for it. The following is a rundown of my thought process while researching the problem and the end result. Skip straight to a [JSFiddle demo](#p4k_demo) if words bore you.
+A [friend of mine](https://twitter.com/mcsheffrey) told me a few weeks ago that he wanted to make a Chrome plugin to display [Pitchfork](http://pitchfork.com) album scores on [Rdio](http://rdio.com) album pages. This seemed like an interesting idea to me, and I wanted to take a stab at the JavaScript for it. The following is a rundown of my thought process while researching the problem and the end result.
 
 <!--more-->
+
+Skip straight to a [JSFiddle demo](#p4k_demo) if words bore you.
 
 ## Steps
 
