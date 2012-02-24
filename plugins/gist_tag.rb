@@ -25,16 +25,16 @@ module Jekyll
         gist, file = parts[1].strip, parts[2].strip
         script_url = script_url_for gist, file
         code       = get_cached_gist(gist, file) || get_gist_from_web(gist, file)
-        html_output_for script_url, code
+        html_output_for script_url, code, gist
       else
         ""
       end
     end
 
-    def html_output_for(script_url, code)
+    def html_output_for(script_url, code, id)
       code = CGI.escapeHTML code
       <<-HTML
-<div><script src='#{script_url}'></script>
+<div class="gist-holder" data-gist-url="#{script_url}"><script src='#{script_url}'></script>
 <noscript><pre><code>#{code}</code></pre></noscript></div>
       HTML
     end

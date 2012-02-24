@@ -1,3 +1,45 @@
 {% comment %}
   Add content to be output at the bottom of each page. (You might use this for analytics scripts, for example)
 {% endcomment %}
+
+<script>
+(function($) {
+  $(function() {
+    var $contentArea = $('#content > div');
+    
+    $('a[rel="full-article"], h1.entry-title > a', '.blog-index').click(function() {
+      var $clicked = $(this),
+          href = $clicked.attr('href'),
+          classMethod = (href === '/') ? 'addClass' : 'removeClass',
+          homeClass = 'blog-index';
+          
+      $.ajax({
+        url: href,
+        dataType: 'html',
+        success: function(data) {          
+          var $data = $(data),
+              $content = $data.find('#content > div'),
+              title = $data.filter('title').text();
+              
+          $content.find('.gist-holder').each(function() {
+            var $gistHolder = $(this),
+                url = $gistHolder.data('gist-url'),
+                id = url.replace(/.*\.com\/([0-9]+)\.js.*/, '$1'),
+                file = url.split('?file=')[1];
+
+            $.get('/embed_gists.php?id='+id+((file)?'&file='+file:''), function(data) {
+              $gistHolder.html(data);
+            })
+          });
+              
+          $contentArea.html($content.html())[classMethod](homeClass);
+          $('title').text(title);
+          history.pushState(null, title, href);
+        }
+      });
+      
+      return false;  
+    });
+  });
+})(jQuery);
+</script>
