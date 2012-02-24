@@ -1,7 +1,7 @@
 (function($) {
 
   var hasHistory = function() {
-    return !! (window.history && history.pushState);
+    return !!(window.history && history.pushState);
   };
 
   if (!hasHistory()) {
@@ -98,7 +98,7 @@
                 distance = (currentPos > scrollTo) ? Math.abs(currentPos - scrollTo) : 0;
             
             if (distance > 0) {
-              $('html, body').delay(200).animate({
+              $('html, body').animate({
                 scrollTop: scrollTo
               }, distance);
             }
