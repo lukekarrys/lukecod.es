@@ -97,6 +97,8 @@
           $.when.apply($, gistEmbeds).done(function() {
             $contentArea.html($content.html())[classMethod](homeClass).ajaxify();
             addCodeLineNumbers();
+            disqus_identifier = url;
+            disqus_url = url;
             disqus_function(dsScript);
             twitter_sharing();
             $('title').text(title);
