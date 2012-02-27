@@ -20,11 +20,7 @@
           isInternalLink;
 
       // Check link
-      isInternalLink = (
-        (url.substring(0, rootUrl.length) === rootUrl || url.indexOf(':') === -1)
-        && url.charAt(0) !== "#"
-        && url.indexOf('atom.xml') === -1
-      );
+      isInternalLink = ((url.substring(0, rootUrl.length) === rootUrl || url.indexOf(':') === -1) && url.charAt(0) !== "#" && url.indexOf('atom.xml') === -1);
 
       // Ignore or Keep
       return isInternalLink;
@@ -39,15 +35,22 @@
       $this.find('a:internal').click(function(event) {
         // Prepare
         var $link = $(this),
-            url = $link.attr('href');
+            url = $link.attr('href'),
+            hash = url.split('#')[1],
+            data = {};
 
         // Continue as normal for cmd clicks etc
         if (event.which == 2 || event.metaKey) {
           return true;
         }
 
+        if (hash) {
+          url = url.replace('#'+hash, '');
+          data.hash = hash;
+        }
+        
         // Ajaxify this link
-        History.pushState(null, null, url);
+        History.pushState(data, null, url);
         event.preventDefault();
         return false;
       });
@@ -62,6 +65,8 @@
       
       var State = History.getState(),
           url = State.url,
+          stateData = State.data,
+          hash = stateData.hash,
           relativeUrl = url.replace(rootUrl, ''),
           isHome = (relativeUrl === '/' || relativeUrl === '/index.html' || relativeUrl === "") ? true : false,
           classMethod = (isHome) ? 'addClass' : 'removeClass',
@@ -98,13 +103,17 @@
             _gaq.push(['_trackPageview', ((relativeUrl.charAt(0) === '/')?'':'/')+relativeUrl]);
             
             var currentPos = $body.scrollTop(),
-                scrollTo = $('nav[role="navigation"]').offset().top,
-                distance = (currentPos > scrollTo) ? Math.abs(currentPos - scrollTo) : 0;
+                $nav = $('nav[role="navigation"]'),
+                $scrollTo = (hash) ? $('#' + hash) : $nav,
+                scrollTo = $scrollTo.offset().top,
+                distance = (currentPos > $nav.position().top || hash) ? Math.abs(currentPos - scrollTo) : 0;
             
             if (distance > 0) {
               $('html, body').animate({
                 scrollTop: scrollTo
-              }, distance);
+              }, distance, function() {
+                if (hash) window.location.hash = hash;
+              });
             }
             
           });
