@@ -95,14 +95,16 @@
           });
 
           $.when.apply($, gistEmbeds).done(function() {
-            $contentArea.html($content.html())[classMethod](homeClass).ajaxify();
-            addCodeLineNumbers();
-            disqus_identifier = url;
-            disqus_url = url;
-            disqus_function(dsScript);
-            twitter_sharing();
-            $('title').text(title);
-            _gaq.push(['_trackPageview', ((relativeUrl.charAt(0) === '/')?'':'/')+relativeUrl]);
+            $contentArea.fadeOut(400, function() {
+              $(this).html($content.html())[classMethod](homeClass).ajaxify().fadeIn(400);
+              addCodeLineNumbers();
+              disqus_identifier = url;
+              disqus_url = url;
+              disqus_function(dsScript);
+              twitter_sharing();
+              $('title').text(title);
+              _gaq.push(['_trackPageview', ((relativeUrl.charAt(0) === '/')?'':'/')+relativeUrl]);
+            });
             
             var currentPos = $body.scrollTop(),
                 $nav = $('nav[role="navigation"]'),
