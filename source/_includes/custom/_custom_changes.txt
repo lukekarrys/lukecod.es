@@ -1,6 +1,3 @@
-- article.html
--- dont show comments on home page
-
 - google_analytics.html
 -- add domain name, load time
 
