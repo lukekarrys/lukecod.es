@@ -100,7 +100,13 @@
               addCodeLineNumbers();
               disqus_identifier = url;
               disqus_url = url;
-              disqus_function(dsScript);
+              DISQUS.reset({
+                reload: true,
+                config: function () {
+                  this.page.identifier = disqus_identifier;
+                  this.page.url = disqus_url;
+                }
+              });
               twitter_sharing();
               $('title').text(title);
               _gaq.push(['_trackPageview', ((relativeUrl.charAt(0) === '/')?'':'/')+relativeUrl]);
