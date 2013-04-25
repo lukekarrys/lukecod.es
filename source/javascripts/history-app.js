@@ -89,9 +89,9 @@
                 id = url.replace(/.*\.com\/([0-9]+)\.js.*/, '$1'),
                 file = url.split('?file=')[1];
 
-            gistEmbeds.push($.get('/embed-gist.php?id=' + id + ((file) ? '&file=' + file : ''), function(data) {
+            /*gistEmbeds.push($.get('/embed-gist.php?id=' + id + ((file) ? '&file=' + file : ''), function(data) {
               $gistHolder.html(data);
-            }));
+            }));*/
           });
 
           $.when.apply($, gistEmbeds).done(function() {
