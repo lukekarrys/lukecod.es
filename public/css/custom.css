@@ -27,6 +27,15 @@
     margin: 0 0.5rem;
 }
 
+.gist {
+  font-size: .8rem !important;
+  line-height: 1.4 !important;
+}
+
+.gist table.highlight {
+  margin-bottom: 0;
+}
+
 @media (min-width: 48rem) {
     .sidebar img.profile {
         max-width: 100%;
