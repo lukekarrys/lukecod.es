@@ -2,6 +2,9 @@
 markdown:         redcarpet
 pygments:         true
 
+# Exclude
+exclude: ['Rakefile', 'README.md', 'LICENSE.md']
+
 # Permalinks
 permalink:        /:year/:month/:day/:title/
 
