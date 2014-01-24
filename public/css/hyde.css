@@ -230,19 +230,6 @@ a.sidebar-nav-item:focus {
 .theme-base-0d .related-posts li a:hover {
   color: #6a9fb5;
 }
-.theme-base-0d .content a.category {
-  transition: all 0.2s ease;
-  border: 1px solid #6a9fb5;
-  background: #6a9fb5;
-  padding: 2px 6px;
-  color: #fff;
-  margin: 2px;
-}
-.theme-base-0d .content a.category:hover {
-  text-decoration: none;
-  color: #6a9fb5;
-  background: #fff;
-}
 
 /* Magenta */
 .theme-base-0e .sidebar {
