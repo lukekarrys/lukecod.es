@@ -8,6 +8,11 @@ exclude: ['Rakefile', 'README.md', 'LICENSE.md']
 # Permalinks
 permalink:        /:year/:month/:day/:title/
 
+
+# Asset Bundler
+asset_bundler:
+    dev: false
+
 # Setup
 title:            Luke Codes
 tagline:          'A Code Blog'
