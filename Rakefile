@@ -23,7 +23,7 @@ task :copydot, :source, :dest do |t, args|
 end
 
 desc "deploy public directory to github pages"
-multitask :push do
+multitask :deploy do
   Rake::Task[:generate].execute
   puts "## Deploying branch to Github Pages "
   puts "## Pulling any updates from Github Pages "
