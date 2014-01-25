@@ -17,7 +17,7 @@ title: Home
     <div class="post-content-truncate">
       {% if post.content contains "<!-- more -->" %}
         {{ post.content | split:"<!-- more -->" | first % }}
-        <a href="{{ post.url }}">Read more</a>
+        <a class="block" href="{{ post.url }}">Read more</a>
       {% else %}
         {{ post.content }}
       {% endif %}
