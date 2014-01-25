@@ -1,4 +1,4 @@
-.theme-base-0d .content a.category {
+.theme-base-0d a.block, .theme-base-0d a.category {
   transition: all 0.2s ease;
   border: 1px solid #6a9fb5;
   background: #6a9fb5;
@@ -6,7 +6,8 @@
   color: #fff;
   margin: 2px;
 }
-.theme-base-0d .content a.category:hover {
+
+.theme-base-0d a.block:hover, .theme-base-0d a.category:hover {
   text-decoration: none;
   color: #6a9fb5;
   background: #fff;
