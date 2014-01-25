@@ -38,6 +38,15 @@
 }
 
 @media (min-width: 48rem) {
+    .sidebar {
+        width: 13rem;
+    }
+
+    .content {
+      max-width: 43rem;
+      margin-left: 15rem;
+    }
+
     .sidebar img.profile {
         max-width: 100%;
     }
