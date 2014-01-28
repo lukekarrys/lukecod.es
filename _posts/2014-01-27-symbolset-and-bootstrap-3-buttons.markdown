@@ -5,7 +5,7 @@ date: 2014-01-27 17:13
 categories: [bootstrap, symbolset, css, less]
 ---
 
-I've been using both [Bootstrap 3](http://getbootstrap.com/) and [Symbolset icons](http://symbolset.com/) on a project, and I noticed the when using the icons inside there are two issues:
+I've been using both [Bootstrap 3](http://getbootstrap.com/) and [Symbolset icons](http://symbolset.com/) on a project, and I noticed the when using the icons inside buttons there are two issues:
 
 1. The icons look too big
 2. They are not aligned vertically
