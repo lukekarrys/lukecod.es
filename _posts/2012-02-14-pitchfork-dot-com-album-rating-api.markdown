@@ -14,6 +14,7 @@ Skip straight to a [JSFiddle demo](#p4k_demo) if words bore you.
 ## Steps
 
 My initial process went as follows:
+
 1. Use album and artist from Rdio URL to get URL of Pitchfork review page
 2. Scrape review page for score
 
