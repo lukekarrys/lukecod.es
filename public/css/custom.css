@@ -7,6 +7,14 @@
   margin: 2px;
 }
 
+.categories a.category {
+  float: left;
+}
+
+.categories {
+  overflow: hidden;
+}
+
 .theme-base-0d a.block:hover, .theme-base-0d a.category:hover {
   text-decoration: none;
   color: #6a9fb5;
