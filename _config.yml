@@ -1,6 +1,6 @@
 # Dependencies
 markdown:         redcarpet
-highlighter:      true
+highlighter:      pygments
 
 # Exclude
 exclude: ['Rakefile', 'README.md', 'LICENSE.md']
