@@ -3,7 +3,7 @@ markdown:         redcarpet
 highlighter:      pygments
 
 # Exclude
-exclude: ['Rakefile', 'README.md', 'LICENSE.md']
+exclude: ['README.md', 'LICENSE.md', 'package.json']
 
 # Permalinks
 permalink:        /:year/:month/:day/:title/
