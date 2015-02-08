@@ -15,6 +15,6 @@
   },
   "scripts": {
     "build": "jekyll build",
-    "deploy": "git-directory-deploy"
+    "deploy": "npm run build && git-directory-deploy --directory _site --branch gh-pages"
   }
 }
