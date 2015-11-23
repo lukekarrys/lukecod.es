@@ -1,5 +1,6 @@
 {
   "name": "lukecod.es",
+  "description": "Luke's code blog.",
   "version": "1.0.0",
   "bugs": {
     "url": "https://github.com/lukekarrys/lukecod.es/issues"
@@ -15,6 +16,7 @@
   },
   "scripts": {
     "build": "jekyll build",
-    "deploy": "npm run build && git-directory-deploy --directory _site --branch gh-pages"
+    "deploy": "npm run build && git-directory-deploy --directory _site --branch gh-pages",
+    "start": "jekyll serve --watch"
   }
 }
