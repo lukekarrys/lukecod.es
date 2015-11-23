@@ -15,7 +15,7 @@ asset_bundler:
 # Setup
 title:            Luke Codes
 tagline:          'A Code Blog'
-description:      'The code blog of <a href="https://twitter.com/lukekarrys" target="_blank">@lukekarrys</a>.'
+description:      'The code blog of <a href="https://github.com/lukekarrys" target="_blank">Luke Karrys</a>.'
 url:              http://lukecod.es
 baseurl:          /
 
@@ -28,5 +28,4 @@ paginate:         5
 # Custom vars
 links:
   home:             http://lukekarrys.com
-  twitter:          https://twitter.com/lukekarrys
   github:           https://github.com/lukekarrys
