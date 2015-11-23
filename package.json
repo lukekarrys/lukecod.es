@@ -25,7 +25,7 @@
     "codeship-setup": "npm run ruby-version && bundle install && npm run npm-version && npm install && npm run build",
     "deploy": "git-directory-deploy --directory _site --branch gh-pages --username lukekarrys --email lukekarrys@gmail.com --repo git@github.com:lukekarrys/lukelov.es.git --message='--skip-ci'",
     "npm-version": "npm install -g npm@`cat package.json | jq -r '.engines.npm'`",
-    "ruby-version": "nrvm use `cat package.json | jq -r '.engines.ruby'` --install",
+    "ruby-version": "rvm use `cat package.json | jq -r '.engines.ruby'` --install",
     "start": "jekyll serve --watch"
   }
 }
