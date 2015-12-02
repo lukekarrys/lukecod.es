@@ -9,6 +9,10 @@ Since I started writing ES6, I've adopted the [functions without function approa
 
 I'm not going to get into every reason why, but that post does a good job of echoing my thoughts on it. I'm not going so far as to say "never", but I don't think I've found the need to type the word `function` even once since I started writing ES6.
 
+I have always wondered about stack traces when using arrow functions though.
+
+<!-- more -->
+
 ## What about stack traces? (Hint: they're fine)
 
 This is one major question that I've seen whenever this discussion has come up, and frankly I didn't know the answer to it. Did using arrow functions equate to use anonymous functions which can make stack traces (and debugging) impossible to navigate?

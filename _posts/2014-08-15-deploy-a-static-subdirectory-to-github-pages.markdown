@@ -11,6 +11,8 @@ I came back to some projects after many months where I had used this method, and
 
 So I packaged the shell script as [an npm module](https://github.com/lukekarrys/git-directory-deploy) so it can be installed to `devDependencies` and used it the same way as the previous method.
 
+<!-- more -->
+
 ### npm run-script
 
 npm allows you to add [arbitray commands](https://www.npmjs.org/doc/cli/npm-run-script.html) to your package.json file and run them with `npm run [command]`.
