@@ -5,7 +5,7 @@ date: 2015-12-01 17:21:06
 categories: [es6, arrow functions, debugging]
 ---
 
-Since I started writing ES6, I've adopted the [functions with function approach](https://medium.com/@ryanflorence/functions-without-function-bc356ed34a2f) and have quite liked it.
+Since I started writing ES6, I've adopted the [functions without function approach](https://medium.com/@ryanflorence/functions-without-function-bc356ed34a2f) and have quite liked it.
 
 I'm not going to get into every reason why, but that post does a good job of echoing my thoughts on it. I'm not going so far as to say "never", but I don't think I've found the need to type the word `function` even once since I started writing ES6.
 
