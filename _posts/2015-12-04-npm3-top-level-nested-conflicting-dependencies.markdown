@@ -11,6 +11,8 @@ You'll notice that I said "flat(ter)" above. If two modules in your project have
 
 I was wondering this because of a discussion on the [eslint issue tracker](https://github.com/eslint/eslint/issues/3458#issuecomment-132922673) about if the new directory structure will allow you to `require` a nested dependency now that it is at the top level of `node_modules`. As the linked comment pointed out, it will let you, but that doesn't mean you should do it. If you did depend on this functionality, you would be requiring a module without any guarantee of what version you would be getting back.
 
+<!-- more -->
+
 ## So what version will you get?
 
 In `npm@3` conflicting versions of nested dependencies will end up at the top level based on **which is installed first**. If they are installed together (using the `npm install package1 package2` syntax) the order didn't matter, since it looks like modules might be alphabetized first before actually installing. I created [a gist](https://gist.github.com/lukekarrys/14ad8946abb208f89e11) that you can clone to try out for yourself.
