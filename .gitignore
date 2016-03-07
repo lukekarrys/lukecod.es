@@ -1,3 +1,4 @@
 _site
 _asset_bundler_cache
 node_modules
+.drafts
