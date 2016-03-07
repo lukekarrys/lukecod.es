@@ -7,7 +7,7 @@ categories: [tools, greenkeeper, ci]
 
 Over the course of ~36 hours last weekend [greenkeeper](http://greenkeeper.io/) notified me of two of my projects where the build was broken by minor updates to tools that I was using.
 
-Here the nice PRs, from what is quickly becoming one of my favorite services:
+Here are the nice PRs, from what is quickly becoming one of my favorite services:
 
 * [Universal Static Instagram](https://github.com/lukekarrys/universal-static-instagram/pull/76)
 * [Tweet Your Bracket](https://github.com/tweetyourbracket/tweetyourbracket.com/pull/118)
@@ -18,6 +18,6 @@ While it's kind of a bummer to get emails that your projects can't build right n
 
 In the case of `babel-plugin-lodash` greenkeeper notified my in less than 8 minutes (!!), and I was able to fix my project, go to the module's repo, find out that the issue wasn't reported yet, come up with test case to reproduce the bug only in the latest version, and hopefully save other developers time in tracking down the issue.
 
-But my favorite part is now that I have a few projects with the dependency pinned, greenkeeper will then notify me of the next update to the package and see if my software is working again. If it is working, all I have to do is merge the pull request and I'm back on the latest version knowing that my software is working as it did before.
+But my favorite part is now that I have a few projects with pinned dependencies, greenkeeper will then notify me of the next update to the package and see if my software is working again. If it is working, all I have to do is merge the pull request and I'm back on the latest version knowing that my software is working as it did before.
 
-I now have greenkeeper enabled on 6 of my bigger open source projects, and it would a no brainer to pay for to use on private projects.
+I now have greenkeeper enabled on 6 of my bigger open source projects, and it would be a no brainer to pay for to use on private projects.
