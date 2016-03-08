@@ -21,3 +21,9 @@ In the case of `babel-plugin-lodash` greenkeeper notified my in less than 8 minu
 But my favorite part is now that I have a few projects with pinned dependencies, greenkeeper will then notify me of the next update to the package and see if my software is working again. If it is working, all I have to do is merge the pull request and I'm back on the latest version knowing that my software is working as it did before.
 
 I now have greenkeeper enabled on 6 of my bigger open source projects, and it would be a no brainer to pay for to use on private projects.
+
+**Update {{ "2016-03-08T10:35:00-0700" | date_to_string }}**
+
+Greenkeeper [opened a PR](https://github.com/lukekarrys/universal-static-instagram/pull/81) 4 minutes and 27 seconds after `babel-plugin-lodash` was published and then a little bit later my CI tests on Travis notified me that the build from the PR was passing. I had to make [one small change](https://github.com/lukekarrys/universal-static-instagram/commit/5095dbbb86b774054f52d0657be9d7d6b6d41e04) to set the version back to a range, since greenkeeper assumes you always want to keep the same type of version declaration (which is the desired behavior in most other cases).
+
+Thanks again Greenkeeper!
