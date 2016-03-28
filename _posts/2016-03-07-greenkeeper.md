@@ -7,10 +7,9 @@ categories: [tools, greenkeeper, ci]
 
 Over the course of ~36 hours last weekend [greenkeeper](http://greenkeeper.io/) notified me of two of my projects where the build was broken by minor updates to tools that I was using.
 
-Here are the nice PRs, from what is quickly becoming one of my favorite services:
+Here is one of the nice PRs, from what is quickly becoming one of my favorite services:
 
 * [Universal Static Instagram](https://github.com/lukekarrys/universal-static-instagram/pull/76)
-* [Tweet Your Bracket](https://github.com/tweetyourbracket/tweetyourbracket.com/pull/118)
 
 One was [a bug in a babel plugin](https://github.com/lodash/babel-plugin-lodash/issues/37) that I use to treeshake my lodash methods to decrease the overall bundle size, and the other was [a change to eslint](https://github.com/eslint/eslint/issues/5476) that broke [babel-eslint](https://github.com/babel/babel-eslint/issues/267).
 
