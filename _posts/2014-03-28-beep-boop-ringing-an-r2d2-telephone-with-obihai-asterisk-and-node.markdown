@@ -7,7 +7,7 @@ categories: [r2d2, telephone, obihai, node, asterisk]
 
 ![the R2D2 phone](https://i.cloudup.com/f38NOYqXOe-3000x3000.jpeg)
 
-I got [this R2D2 telephone](http://www.amazon.com/gp/product/B00001U0IG) as a gift when I was in 6th grade(-ish). I used it in my room as a real telephone as a teenager, even though the handset was the most uncomfortable and least ergonomic handset imaginable. The ringer is the iconic R2D2 noise which will never stop being epic to me *(maybe this is just because my name is Luke)*. In short, I love this phone.
+I got [this R2D2 telephone](http://amzn.to/2aU3cuu) as a gift when I was in 6th grade(-ish). I used it in my room as a real telephone as a teenager, even though the handset was the most uncomfortable and least ergonomic handset imaginable. The ringer is the iconic R2D2 noise which will never stop being epic to me *(maybe this is just because my name is Luke)*. In short, I love this phone.
 
 The problem is I haven't used a hard phone in years, so it's been sitting on my desk as a piece of art. I've always planned on finding a better use for the talented droid, but never got around to it.
 
@@ -21,10 +21,10 @@ So I went to Amazon and bought the parts I would need, borrowing heavily from th
 
 **Here is my parts list:**
 
-1. **[OBi202 VoIP Phone Adapter](http://www.amazon.com/OBi202-Phone-Adapter-Router-2-Phone/dp/B007D930YO)**: I bought the 202 because it can be made to work wirelessly and it has an extra phone port if I ever wanted to ya know, actually use all this technology and hardware for something useful (like a real phone).
-2. **[OBiWiFi Wireless Adapter](http://www.amazon.com/OBiWiFi-Wireless-Adapter-OBi200-OBi202/dp/B007R6F7PS)**: Works with the Obihai 202 and 201 models to make them WiFi capable. You can get away with not buying this and getting the less expensive [OBi100](http://www.amazon.com/OBi100-Telephone-Adapter-Service-Bridge/dp/B004LO098O) if you want to plug everything in with Ethernet cables.
-3. **A machine that will run [Asterisk](http://www.asterisk.org/)**: This was my first time ever touching Asterisk, but I got it up and running on my [PogoPlug E02](http://www.amazon.com/Pogoplug-POGO-B01-File-Sharing-Solution/dp/B004TDY924). I would also recommend going the [RasPBX/Raspberry Pi](http://www.raspberry-asterisk.org/) route as detailed in the [Twilio blog post](https://www.twilio.com/blog/2013/03/build-a-twilio-hard-phone-with-sip-from-twilio-raspberry-pi-asterisk-freepbx-and-the-obihai-obi100.html) since that seemed to have a pretty good community and setup instructions.
-4. **[RJ11 Phone Cable](http://www.amazon.com/C2G-Cables-Modular-Telephone-Silver/dp/B00006HSK6)**: I forgot to buy this as I had lost the actual cord to the R2D2 phone a long time ago. Luckily I was able to rummage through a neighbor's attic and find one.
+1. **[OBi202 VoIP Phone Adapter](http://amzn.to/2aArED3)**: I bought the 202 because it can be made to work wirelessly and it has an extra phone port if I ever wanted to ya know, actually use all this technology and hardware for something useful (like a real phone).
+2. **[OBiWiFi Wireless Adapter](http://amzn.to/2arBqBH)**: Works with the Obihai 202 and 201 models to make them WiFi capable. You can get away with not buying this and getting the less expensive [OBi100](http://amzn.to/2aGtEEP) if you want to plug everything in with Ethernet cables.
+3. **A machine that will run [Asterisk](http://www.asterisk.org/)**: This was my first time ever touching Asterisk, but I got it up and running on my [PogoPlug E02](http://amzn.to/2aArsUn). I would also recommend going the [RasPBX/Raspberry Pi](http://www.raspberry-asterisk.org/) route as detailed in the [Twilio blog post](https://www.twilio.com/blog/2013/03/build-a-twilio-hard-phone-with-sip-from-twilio-raspberry-pi-asterisk-freepbx-and-the-obihai-obi100.html) since that seemed to have a pretty good community and setup instructions.
+4. **[RJ11 Phone Cable](http://amzn.to/2aDPXO7)**: I forgot to buy this as I had lost the actual cord to the R2D2 phone a long time ago. Luckily I was able to rummage through a neighbor's attic and find one.
 5. **[A Flash Drive](http://www.newark.com/samsung/raspberry-pi-prog-4gb-sdcard/debian-linux-preprogramed-4gb-sdcard/dp/96T7436)**: You'll need this to install Arch Linux on your PogoPlug. If you're going the Raspberry Pi way, an [SD Card](http://www.newark.com/samsung/raspberry-pi-prog-4gb-sdcard/debian-linux-preprogramed-4gb-sdcard/dp/96T7436) will work.
 
 ## Asterisk and The 1000 Line Conf Files (aka YMMV)
