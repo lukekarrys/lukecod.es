@@ -29,7 +29,7 @@ So I went to Amazon and bought the parts I would need, borrowing heavily from th
 
 ## Asterisk and The 1000 Line Conf Files (aka YMMV)
 
-For someone who had never touched it before, Asterisk was daunting. Most tutorials I found were for doing (comparatively) very complex things and often used GUIs like FreePBX. I probably did 200+ Google searches while trying to get this working. So I can share what I did to get it working, but I can't say how my solution would transfer to other OSes or hardware or versions of Asterisk. But feel free to ask me any questions on [Twitter](https://twitter.com/lukekarrys) and I will help out however I can!
+For someone who had never touched it before, Asterisk was daunting. Most tutorials I found were for doing (comparatively) very complex things and often used GUIs like FreePBX. I probably did 200+ Google searches while trying to get this working. So I can share what I did to get it working, but I can't say how my solution would transfer to other OSes or hardware or versions of Asterisk. But feel free to ask me any questions and I will help out however I can!
 
 
 ## The PogoPlug
