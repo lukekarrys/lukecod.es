@@ -14,7 +14,9 @@ My project is using `react`, `webpack`, and `babel`. One of the `babel` plugins 
 
 I'm also using the [`babel-polyfill`](https://babeljs.io/docs/usage/polyfill/) (which includes the [`core-js`](https://github.com/zloirock/core-js) shim) to polyfill some features like Symbols.
 
-The project was working fine locally on iOS 8, but when deployed I was getting an error from `react`:
+The project was working fine locally on iOS 8, but when deployed I was getting an error from `react`.
+
+<!-- more -->
 
 ```
 Error: Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.
