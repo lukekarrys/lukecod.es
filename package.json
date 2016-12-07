@@ -9,8 +9,7 @@
     "git-directory-deploy": "^1.0.0"
   },
   "engines": {
-    "node": "^5.1.0",
-    "npm": "^3.3.12",
+    "node": "^6.1.0",
     "ruby": "2.1.1"
   },
   "homepage": "http://lukecod.es",
@@ -22,9 +21,8 @@
   },
   "scripts": {
     "build": "jekyll build",
-    "codeship-setup": "npm run ruby-version && bundle install && npm run npm-version && npm install && npm run build",
+    "codeship-setup": "npm run ruby-version && bundle install && npm install && npm run build",
     "deploy": "git-directory-deploy --directory _site --branch gh-pages --username lukekarrys --email lukekarrys@gmail.com --repo git@github.com:lukekarrys/lukecod.es.git --message='--skip-ci'",
-    "npm-version": "npm install -g npm@`cat package.json | jq -r '.engines.npm'`",
     "ruby-version": "rvm use `cat package.json | jq -r '.engines.ruby'` --install",
     "start": "jekyll serve --watch"
   }
