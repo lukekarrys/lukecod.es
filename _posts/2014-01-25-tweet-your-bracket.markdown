@@ -2,7 +2,7 @@
 layout: post
 title: "Tweet Your Bracket: What the Heck?"
 date: 2014-01-25 18:00
-categories: [tweet your bracket, ncaa, node]
+categories: [tweetyourbracket, bracketclub, ncaa, node]
 ---
 
 For the past two years, I've run a small project called [Tweet Your Bracket](http://tweetyourbracket.com). It started out as (and still is) just a crazy idea that I was passion about, so I did what I usually do in that scenario: quickly write some (messy) code.

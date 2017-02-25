@@ -2,7 +2,7 @@
 layout: post
 title: "Deploying Greenkeeper PR Branches with Surge and Codeship"
 date: 2016-08-18T14:02:21-07:00
-categories: [surge, greenkeeper, ci, codeship]
+categories: [surge, greenkeeper, ci, codeship, devops]
 ---
 
 As I've mentioned before, [Greenkeeper is pretty great](/2016/03/07/greenkeeper). Another tool I love is [Surge](https://surge.sh), which allows you to quickly and easily publish any static content to the web. These two tools can be combined in a pretty cool way to allow you to see a built version of your site anytime Greenkeeper finds a release that doesn't match your versioning strategy.

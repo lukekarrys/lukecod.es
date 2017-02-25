@@ -2,7 +2,7 @@
 layout: post
 title: "Greenkeeper"
 date: 2016-03-07T12:40:35-0700
-categories: [tools, greenkeeper, ci]
+categories: [tools, greenkeeper, ci, devops]
 ---
 
 Over the course of ~36 hours last weekend [greenkeeper](http://greenkeeper.io/) notified me of two of my projects where the build was broken by minor updates to tools that I was using.
