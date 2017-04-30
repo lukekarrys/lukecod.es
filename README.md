@@ -1,5 +1,7 @@
 # Hyde
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/lukekarrys/lukecod.es.svg)](https://greenkeeper.io/)
+
 [ ![Codeship Status for lukekarrys/lukecod.es](https://codeship.com/projects/1fbe91b0-7466-0133-a3cf-3288c2fe695c/status?branch=master)](https://codeship.com/projects/117626)
 
 Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
