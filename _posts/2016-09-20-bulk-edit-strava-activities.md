@@ -19,11 +19,9 @@ At some point earlier this year, I wanted to change all my [https://strava.com](
 
 Currently the only way to use this is to load it in the console of Strava.com on the [activities page](https://www.strava.com/athlete/training). This must be done after any page changing navigation since a browser reload will clear any external scripts.
 
-```js
-jQuery.getScript('https://unpkg.com/strava-bulk-edit')
-```
+[GitHub has the most up to date installation instructions.](https://github.com/lukekarrys/strava-bulk-edit#installation).
 
-This will add a dropdown to the UI that will allow to set all activites to `Public` or `Private` (as well as a `Cancel` button while the editing occurs).
+Once loadeed, this will add a dropdown to the UI that will allow to set all activites to `Public` or `Private` (as well as a `Cancel` button while the editing occurs).
 
 The editing will happen across pages, for all activities you have, and you'll see a green highlight go across each row as it is edited.
 
