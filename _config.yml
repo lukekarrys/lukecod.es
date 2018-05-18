@@ -16,7 +16,7 @@ asset_bundler:
 title:            Luke Codes
 tagline:          'A Code Blog'
 description:      'The code blog of <a href="https://github.com/lukekarrys" target="_blank">Luke Karrys</a>.'
-url:              http://lukecod.es
+url:              https://lukecod.es
 baseurl:          /
 
 author:
@@ -27,5 +27,5 @@ paginate:         5
 
 # Custom vars
 links:
-  home:             http://lukekarrys.com
+  home:             https://lukekarrys.com
   github:           https://github.com/lukekarrys
