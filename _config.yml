@@ -27,5 +27,4 @@ paginate:         5
 
 # Custom vars
 links:
-  home:             https://lukekarrys.com
   github:           https://github.com/lukekarrys
