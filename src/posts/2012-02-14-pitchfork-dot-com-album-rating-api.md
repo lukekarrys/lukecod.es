@@ -37,4 +37,4 @@ Staying the client-side spirit, I decided to use YQL and based my code off [Jame
 
 The demo currently pulls the artist and album search terms from the `#artist` and `#album` spans. Click the + button to edit the fiddle and try some of your own search terms.
 
-<p><iframe width="100%" height="350" src="http://jsfiddle.net/lukekarrys/vC4MN/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe></p>
+<p><iframe width="100%" height="350" src="https://jsfiddle.net/lukekarrys/vC4MN/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe></p>

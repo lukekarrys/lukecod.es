@@ -25,8 +25,18 @@ const findRelatedPosts = ({ post, posts }) => {
   return relatedPosts
 }
 
+const fixDeepLinksInExcerpts = post => {
+  // In excerpts, replace in-post links with a link to the post+the link
+  // so thats links from listing pages work
+  post.excerpt = post.excerpt.replace(
+    /href="#([\w\-]+)"/gi,
+    `href="${post.fields.slug}#$1"`
+  )
+}
+
 const createPostPages = ({ actions, posts }) => {
   posts.forEach(post => {
+    fixDeepLinksInExcerpts(post)
     actions.createPage({
       path: post.fields.slug,
       component: path.resolve(`src/templates/post.js`),

@@ -13,7 +13,7 @@ I wrote some very simple [LESS](http://www.lesscss.org/) code which I think make
 
 ### Screenshot
 
-![Before and after: Symbolset icons inside Bootstrap buttons](//i.cloudup.com/xcRuZJZFFD.png)
+![Before and after: Symbolset icons inside Bootstrap buttons](../images/symbolset-buttons.png)
 
 ### Code
 

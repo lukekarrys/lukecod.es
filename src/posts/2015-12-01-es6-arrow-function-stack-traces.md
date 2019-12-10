@@ -31,14 +31,14 @@ console.log(z(5))
 
 #### Chrome
 
-![Arrow function stack trace in Chrome](https://cldup.com/vfAatPFYxp.png)
+![Arrow function stack trace in Chrome](../images/arrow-fn-stack-trace-chrome.png)
 
 #### Node 5
 
-![Arrow function stack trace in Node 5](https://cldup.com/ye8BxR-4eS.png)
+![Arrow function stack trace in Node 5](../images/arrow-fn-stack-trace-node.png)
 
 #### Chrome with Babel
 
-![Arrow function stack trace with Chrome+Babel](https://cldup.com/RigPf5hlmg.png)
+![Arrow function stack trace with Chrome+Babel](../images/arrow-fn-stack-trace-babel.png)
 
 Those all look pretty good to me! I'm going to keep writing arrow functions for most everything since I haven't seen any significant downsides, and I really, really don't like typing the word `function` :)

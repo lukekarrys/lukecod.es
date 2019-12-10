@@ -18,11 +18,11 @@ You'll want to have your project setup to run on Codeship first. The [Getting St
 
 The first step is to configure Codeship to run a custom command whenever a new branch starting with `greenkeeper` is pushed to. Note that this could be `feature` instead if you wanted to deploy every time you created a feature branch as well.
 
-![Branch starts with greenkeeper](https://cldup.com/WcNs4nXZTO.png)
+![Branch starts with greenkeeper](../images/codeship-branch-starts-with-greenkeeper.png)
 
 Then you want that deploy pipeline to run the command `npm run deploy-branch`. I like to use an [`npm run-script`](https://docs.npmjs.com/cli/run-script) as that allows me to keep all the logic for deploying this in my project.
 
-![npm run deploy-branch](https://cldup.com/4ItKfxJLq5.png)
+![npm run deploy-branch](../images/codeship-npm-run-deploy-branch.png)
 
 ### Configure your run scripts
 

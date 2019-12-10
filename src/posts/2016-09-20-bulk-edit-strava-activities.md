@@ -1,18 +1,18 @@
 ---
 title: "Bulk Edit Strava Activities Plugin"
 date: 2016-09-20T10:43:21-07:00
-tags: [strava, plugin, javascript, js]
+tags: [strava, plugin, js]
 ---
 
 > #### TL;DR
 >
-> Check out the [GitHub repo](https://github.com/lukekarrys/strava-bulk-edit) or [demo gif](https://cldup.com/7pZH0ZPSnR.gif).
+> Check out the [GitHub repo](https://github.com/lukekarrys/strava-bulk-edit) or [demo gif](#demo).
 
 At some point earlier this year, I wanted to change all my [https://strava.com](Strava) activities from private to public (gotta get on those segment leaderboards!). This looked like a hassle to do by hand, and I'm always looking for a good excuse to prove the XKCD Theory of Automation. So I started coding.
 
 <!-- more -->
 
-[![](http://imgs.xkcd.com/comics/automation.png)](https://xkcd.com/1319/)
+[![XKCD Automation](../images/automation.png)](https://xkcd.com/1319/)
 
 ### Installation and UI
 
@@ -51,5 +51,4 @@ StravaBulkEdit.editAll({
 
 ### Demo
 
-![](https://cldup.com/7pZH0ZPSnR.gif)
-&nbsp;
+![Demo of Strava Bulk Editing with the plugin](../images/strava-bulk-edit-demo.gif)

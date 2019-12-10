@@ -4,7 +4,7 @@ date: 2014-03-28 15:34
 tags: [r2d2, telephone, obihai, node, asterisk]
 ---
 
-![the R2D2 phone](https://i.cloudup.com/f38NOYqXOe-3000x3000.jpeg)
+![the R2D2 phone](../images/r2d2-phone.jpg)
 
 I got [this R2D2 telephone](http://amzn.to/2aU3cuu) as a gift when I was in 6th grade(-ish). I used it in my room as a real telephone as a teenager, even though the handset was the most uncomfortable and least ergonomic handset imaginable. The ringer is the iconic R2D2 noise which will never stop being epic to me _(maybe this is just because my name is Luke)_. In short, I love this phone.
 
@@ -32,7 +32,7 @@ For someone who had never touched it before, Asterisk was daunting. Most tutoria
 
 ## The PogoPlug
 
-![pink pogoplug](https://i.cloudup.com/ujdP1FZF1z-3000x3000.jpeg)
+![pink pogoplug](../images/pogoplug.jpg)
 
 I bought this little machine on Amazon for ~\$20 and it proved to be a fun toy for hacking on. There are simple tutorials for getting this particular model [up and running with Arch Linux](http://archlinuxarm.org/platforms/armv5/pogoplug-v2-pinkgray), so I won't get into that here. Again, if you're using a Raspberry Pi, you can skip this. The end goal is just to have a machine running Asterisk (or some flavor of Asterisk management software).
 
@@ -153,7 +153,7 @@ Again, this is copied mostly from the [Twilio blog post](https://www.twilio.com/
 2. For the **AuthUserName** we will use our extension: **1337**
 3. For the **AuthPassword** we will use the secret from sip.conf: **obihai**
 
-![sip credential](https://i.cloudup.com/kknkEFsZmT.png)
+![sip credential](../images/sip-credentials.png)
 
 #### Point the Obihai at Asterisk
 
@@ -161,7 +161,7 @@ Again, this is copied mostly from the [Twilio blog post](https://www.twilio.com/
 2. For the **ProxyServer** to the IP address of the machine running Asterisk. **This depends on your network setup.**
 3. For the **ProxyServerPort** we will use the port from sip.conf: **5060**
 
-![proxy server](https://i.cloudup.com/4gxrxZJeuV.png)
+![proxy server](../images/proxy-server.png)
 
 #### Reboot the Obihai
 
@@ -226,7 +226,7 @@ You'll also notice I hardcoded the timeout at 1 second. This is because the R2D2
 
 And of course I had to add colorized R2D2 ASCII art for when it sucessfully sends the action.
 
-![R2D2](https://i.cloudup.com/H3R1OaYCMx.png)
+![ASCII R2D2](../images/ascii-r2d2.png)
 
 Once I had it working locally, I ran `npm link` inside the directory and then `R2D2` was global command.
 

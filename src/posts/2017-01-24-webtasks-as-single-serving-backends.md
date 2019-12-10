@@ -62,7 +62,7 @@ If you have a Last.fm account, you can go to [repeatone.club][repeatoneclub] and
 
 If you're lucky, [I might even be listening to something on repeat right now][formatfanatic]! If I'm not, you can take solace in this screenshot of when I listened to Open Book 100 times:
 
-[![open book](https://cldup.com/5bKmuzmIf7.png)](https://cldup.com/5bKmuzmIf7.png)
+![open book](../images/open-book-repeatone.png)
 
 [github]: https://github.com/lukekarrys/repeatone-webtask
 [github-club]: https://github.com/lukekarrys/repeatone.club
