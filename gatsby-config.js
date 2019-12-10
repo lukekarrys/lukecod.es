@@ -68,7 +68,7 @@ module.exports = {
               inlineCodeMarker: null,
               aliases: {},
               showLineNumbers: false,
-              noInlineHighlight: false
+              noInlineHighlight: true
             }
           },
           `gatsby-remark-smartypants`,
