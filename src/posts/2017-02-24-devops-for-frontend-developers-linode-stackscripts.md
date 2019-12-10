@@ -32,7 +32,7 @@ The StackScript does the following:
 
 For reference here's [the source of the StackScript for these watchers][data-stackscript].
 
-```sh
+```bash
 #!/bin/bash
 
 # <UDF name="TWITTER_KEY" Label="Twitter key" />
@@ -117,7 +117,7 @@ I keep that StackScript checked in to my project's version control, but I still 
 
 The Linode CLI makes it pretty easy to create and update a StackScript attached to a Linode account:
 
-```sh
+```bash
 linode stackscript \
   --action [create|update] \
   --label "My StackScript" \
@@ -129,7 +129,7 @@ Once the StackScript has been created (and probably updated a few (dozen) times 
 
 See the [CLI documentation][cli-docs] for all available location, plan, and distribution options. Also check out the [StackScript documentation][linode-stackscripts-guide] on enviroment variables. In my case, I specify some `UDF` tags in my StackScript and then pass those variables via the `--stackscriptjson` parameter in the CLI.
 
-```sh
+```bash
 linode show --label "My Linode"
 [[ $? = "0" ]] && COMMAND="rebuild" || COMMAND="create"
 linode --action $COMMAND \

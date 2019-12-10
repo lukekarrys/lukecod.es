@@ -63,7 +63,7 @@ I created [an example repo](https://github.com/lukekarrys/metalsmith-dayone-exam
 
 So if you wanted to see how your Day One data would look as a blog:
 
-```sh
+```bash
 # Export your own Day One data as JSON and save it as ~/Desktop/dayone-data.zip
 git clone git@github.com:lukekarrys/metalsmith-dayone-example.git
 cd metalsmith-dayone-example

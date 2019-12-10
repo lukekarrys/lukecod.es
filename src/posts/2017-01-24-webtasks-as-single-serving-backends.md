@@ -43,7 +43,7 @@ module.exports = (ctx, cb) => {
 }
 ```
 
-```sh
+```bash
 # This will output the url to your webtask
 wt create repeatone.js --secret API_KEY=$YOUR_LAST_FM_API_KEY
 # Call your webtask with a user parameter

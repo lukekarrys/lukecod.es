@@ -20,7 +20,7 @@ What the gist does is `npm install` two different tarballs, `inherits-1.tgz` and
 
 The `run-scripts` install them in different orders and then display the version from the top level in `node_modules/inherits/package.json`. Here's the output of those scripts:
 
-```sh
+```bash
 # npm i inherits-1.tgz && npm i inherits-2.tgz
 > npm run order1
 "version": "1.0.2"
