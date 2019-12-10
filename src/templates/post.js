@@ -1,0 +1,43 @@
+import React from "react"
+import { Link } from "gatsby"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import ShortPostsListing from "../components/ShortPostsListing"
+
+export default ({ pageContext }) => {
+  const { post, relatedPosts } = pageContext
+  return (
+    <Layout>
+      <SEO title={post.frontmatter.title} />
+      <div className="post">
+        <h1 className="post-title">{post.frontmatter.title}</h1>
+        <span className="post-date">{post.frontmatter.date}</span>
+        <div
+          className="blog-post-content"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
+      </div>
+      <div className="related">
+        <p>
+          <a href="https://github.com/lukekarrys">Drop me a line</a> if you have
+          any questions, comments, or just want to say hi. Thanks for reading,
+          you seem nice.
+        </p>
+        <h2>Filed Under</h2>
+        <p className="categories">
+          {post.frontmatter.tags.map(tag => (
+            <Link key={tag} className="category" to={`/categories/${tag}`}>
+              {tag}
+            </Link>
+          ))}
+        </p>
+        {relatedPosts.length > 0 && (
+          <>
+            <h2>Related Posts</h2>
+            <ShortPostsListing posts={relatedPosts} />
+          </>
+        )}
+      </div>
+    </Layout>
+  )
+}
