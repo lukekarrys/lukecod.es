@@ -37,6 +37,7 @@ const Layout = ({ children }) => {
               All Posts
             </Link>
             <a
+              className="sidebar-nav-item"
               href="https://github.com/lukekarrys"
               target="_blank"
               rel="noopener noreferrer"
