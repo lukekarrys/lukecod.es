@@ -68,7 +68,7 @@ If you're lucky, [I might even be listening to something on repeat right now][fo
 [github-club]: https://github.com/lukekarrys/repeatone.club
 [github-source]: https://github.com/lukekarrys/repeatone-webtask/blob/88f8f6696619da8775f90482c2a46cefed79def8/repeatone.js
 [surge]: https://surge.sh
-[repeatoneclub]: https://repeatoneclub.surge.sh
+[repeatoneclub]: https://repeatoneclub.lukecod.es
 [webtask]: https://webtask.io/
 [webtask-params]: https://webtask.io/docs/issue_parameters
 [webtask-install]: https://webtask.io/cli
@@ -79,4 +79,4 @@ If you're lucky, [I might even be listening to something on repeat right now][fo
 [lastfm-api]: http://www.last.fm/api/show/user.getRecentTracks
 [lastfm-auth]: http://www.last.fm/api/authentication
 [auth0]: https://auth0.com/
-[formatfanatic]: http://repeatone.club/formatfanatic
+[formatfanatic]: https://repeatoneclub.lukecod.es/formatfanatic
