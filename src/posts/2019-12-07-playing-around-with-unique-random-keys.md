@@ -1,7 +1,7 @@
 ---
 title: "Playing Around with Unique Random Keys"
 date: 2019-12-07T10:32:07-07:00
-tags: [js, strava]
+tags: [js]
 ---
 
 I had a project recently where I was trying to decide the optimal length for a nice human readable key, while making it unlikely to have collisions while keeping it semi-unguessable.
