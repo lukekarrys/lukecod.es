@@ -1,13 +1,14 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export default ({ pageContext }) => {
-  const { posts, currentPage, totalPages } = pageContext
+export default ({ data, pageContext }) => {
+  const posts = data.allMarkdownRemark.edges.map(({ node }) => node)
+  const { title, currentPage, totalPages } = pageContext
   return (
     <Layout>
-      <SEO title={currentPage === 1 ? "Home" : `Page ${currentPage}`} />
+      <SEO title={title} />
       <div className="posts">
         {posts.map(post => (
           <div key={post.fields.slug} className="post">
@@ -65,3 +66,28 @@ const Pagination = ({ currentPage, totalPages }) => {
     </div>
   )
 }
+
+export const query = graphql`
+  query($limit: Int, $skip: Int, $filter: MarkdownRemarkFilterInput) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: $limit
+      skip: $skip
+      filter: $filter
+    ) {
+      edges {
+        node {
+          html
+          excerpt(format: HTML)
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+          }
+        }
+      }
+    }
+  }
+`

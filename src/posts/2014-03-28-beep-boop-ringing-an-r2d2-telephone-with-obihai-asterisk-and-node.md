@@ -82,7 +82,7 @@ There are three configuration files that need to be updated for this work. Below
 
 #### extensions.conf
 
-```
+```text
 [general]
 static=yes
 writeprotect=no
@@ -98,7 +98,7 @@ exten => 1337,n,Hangup()
 
 #### sip.conf
 
-```
+```text
 [general]
 context=incoming
 port=5060
@@ -122,7 +122,7 @@ context=myphones
 
 #### manager.conf
 
-```
+```text
 [general]
 enabled = yes
 

@@ -1,11 +1,11 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ShortPostsListing from "../components/ShortPostsListing"
 
-export default ({ pageContext }) => {
-  const { post, relatedPosts } = pageContext
+export default ({ data: { markdownRemark: post }, pageContext }) => {
+  const { relatedPosts } = pageContext
   return (
     <Layout>
       <SEO title={post.frontmatter.title} />
@@ -41,3 +41,16 @@ export default ({ pageContext }) => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query($slug: String) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        tags
+      }
+    }
+  }
+`

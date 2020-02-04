@@ -18,7 +18,7 @@ The project was working fine locally on iOS 8, but when deployed I was getting a
 
 <!-- more -->
 
-```
+```text
 Error: Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.
 ```
 
@@ -36,7 +36,7 @@ DOM.render(<div>hey everybody</div>, document.getElementById("root"))
 
 Next, I removed the `webpack` define plugin so it was no longer replacing `process.env.NODE_ENV` so I could see what the unminified error was:
 
-```
+```text
 Invariant Violation: ReactDOM.render(): Invalid component element. This may be caused by unintentionally loading two independent copies of React.
 ```
 

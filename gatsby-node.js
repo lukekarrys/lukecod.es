@@ -40,53 +40,54 @@ const createPostPages = ({ actions, posts }) => {
     actions.createPage({
       path: post.fields.slug,
       component: path.resolve(`src/templates/post.js`),
-      context: { post, relatedPosts: findRelatedPosts({ post, posts }) }
+      context: {
+        slug: post.fields.slug,
+        relatedPosts: findRelatedPosts({ post, posts })
+      }
     })
   })
 }
 
 const createTagPages = ({ actions, posts }) => {
-  const tagPages = posts.reduce((acc, post) => {
-    post.frontmatter.tags.forEach(tag => {
-      if (!acc[tag]) acc[tag] = []
-      acc[tag].push(post)
+  posts
+    .reduce(
+      (acc, post) =>
+        post.frontmatter.tags.reduce((acc, tag) => acc.add(tag), acc),
+      new Set()
+    )
+    .forEach(tag => {
+      actions.createPage({
+        path: `/tags/${tag}`,
+        component: path.resolve(`src/templates/shortListing.js`),
+        context: {
+          title: `Tag: ${tag}`,
+          filter: { frontmatter: { tags: { in: [tag] } } }
+        }
+      })
     })
-    return acc
-  }, {})
-
-  Object.keys(tagPages).forEach(tag => {
-    actions.createPage({
-      path: `/tags/${tag}`,
-      component: path.resolve(`src/templates/shortListing.js`),
-      context: { title: `Tag: ${tag}`, posts: tagPages[tag] }
-    })
-  })
 }
 
-const createListingPages = ({ actions, posts, perPage = 5 }) => {
-  let start = 0
-
-  const pageGroups = Array.from(Array(Math.ceil(posts.length / perPage))).map(
-    () => {
-      const group = posts.slice(start, start + perPage)
-      start += perPage
-      return group
-    }
-  )
-
-  pageGroups.forEach((posts, index) => {
-    const currentPage = index + 1
+const createListingPages = ({ actions, posts, limit = 5 }) => {
+  const totalPages = Math.ceil(posts.length / limit)
+  Array.from({ length: totalPages }).forEach((_, i) => {
+    const currentPage = i + 1
     actions.createPage({
       path: currentPage === 1 ? "/" : `/page${currentPage}`,
       component: path.resolve(`src/templates/postListing.js`),
-      context: { posts, totalPages: pageGroups.length, currentPage }
+      context: {
+        title: currentPage === 1 ? "Home" : `Page ${currentPage}`,
+        limit,
+        skip: i * limit,
+        totalPages,
+        currentPage
+      }
     })
   })
 
   actions.createPage({
     path: `/full`,
     component: path.resolve(`src/templates/shortListing.js`),
-    context: { title: `All Posts`, posts }
+    context: { title: `All Posts` }
   })
 }
 
@@ -102,7 +103,9 @@ const createPostFields = ({ actions, node, getNode }) => {
 
   const dateSlug = date.replace(/-/g, "/")
 
-  node.frontmatter.tags = node.frontmatter.tags.map(t => t.replace(/\s/g, "-"))
+  node.frontmatter.tags = Array.isArray(node.frontmatter.tags)
+    ? node.frontmatter.tags.map(t => t.replace(/\s/g, "-"))
+    : []
 
   createNodeField({ node, name: `slug`, value: `/${dateSlug}/${title}` })
 }
@@ -121,8 +124,6 @@ exports.createPages = async ({ graphql, actions }) => {
               slug
             }
             frontmatter {
-              title
-              date(formatString: "MMMM DD, YYYY")
               tags
             }
           }
@@ -132,7 +133,8 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   if (results.errors) {
-    throw results.errors
+    reporter.panicOnBuild(`Error while running allMarkdownRemark query`)
+    return
   }
 
   const posts = results.data.allMarkdownRemark.edges.map(({ node }) => node)
