@@ -7,7 +7,9 @@ export default ({ posts }) => (
       <li key={post.fields.slug}>
         <h3>
           <Link to={post.fields.slug}>
-            {post.frontmatter.title} <small>{post.frontmatter.date}</small>
+            {post.frontmatter.title}
+            <br/>
+            <small>{post.frontmatter.date}</small>
           </Link>
         </h3>
       </li>
