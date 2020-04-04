@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ShortPostsListing from "../components/ShortPostsListing"
 
-export default ({ data: { markdownRemark: post }, pageContext }) => {
+export default ({ data: { post }, pageContext }) => {
   const { relatedPosts } = pageContext
   return (
     <Layout>
@@ -44,7 +44,7 @@ export default ({ data: { markdownRemark: post }, pageContext }) => {
 
 export const query = graphql`
   query($slug: String) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    post: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title

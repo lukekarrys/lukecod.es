@@ -51,7 +51,7 @@
   margin-bottom: 0;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 48em) {
   .sidebar {
     width: 13rem;
   }

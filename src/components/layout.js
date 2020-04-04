@@ -36,6 +36,9 @@ const Layout = ({ children }) => {
             <Link className="sidebar-nav-item" to="/full">
               All Posts
             </Link>
+            <Link className="sidebar-nav-item" to="/projects">
+              Projects
+            </Link>
             <a
               className="sidebar-nav-item"
               href="https://github.com/lukekarrys"

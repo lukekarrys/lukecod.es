@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import ShortPostsListing from "../components/ShortPostsListing"
 
 export default ({ data, pageContext }) => {
-  const posts = data.allMarkdownRemark.edges.map(({ node }) => node)
+  const posts = data.posts.edges.map(({ node }) => node)
   const { title } = pageContext
   return (
     <Layout>
@@ -18,7 +18,7 @@ export default ({ data, pageContext }) => {
 
 export const query = graphql`
   query($limit: Int, $skip: Int, $filter: MarkdownRemarkFilterInput) {
-    allMarkdownRemark(
+    posts: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip

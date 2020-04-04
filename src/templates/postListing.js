@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default ({ data, pageContext }) => {
-  const posts = data.allMarkdownRemark.edges.map(({ node }) => node)
+  const posts = data.posts.edges.map(({ node }) => node)
   const { title, currentPage, totalPages } = pageContext
   return (
     <Layout>
@@ -69,7 +69,7 @@ const Pagination = ({ currentPage, totalPages }) => {
 
 export const query = graphql`
   query($limit: Int, $skip: Int, $filter: MarkdownRemarkFilterInput) {
-    allMarkdownRemark(
+    posts: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip

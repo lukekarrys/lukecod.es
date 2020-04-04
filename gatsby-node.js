@@ -2,6 +2,15 @@ const path = require("path")
 const _ = require("lodash")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const sourceFilesystemFilters = {
+  posts: {
+    fileAbsolutePath: { regex: `/${path.join(__dirname, "src", "posts")}/` }
+  },
+  projects: {
+    fileAbsolutePath: { regex: `/${path.join(__dirname, "src", "projects")}/` }
+  }
+}
+
 const findRelatedPosts = ({ post, posts }) => {
   const otherPosts = _.reject(posts, p => p.fields.slug === post.fields.slug)
 
@@ -48,7 +57,7 @@ const createPostPages = ({ actions, posts }) => {
   })
 }
 
-const createTagPages = ({ actions, posts }) => {
+const createPostTagPages = ({ actions, posts }) => {
   posts
     .reduce(
       (acc, post) =>
@@ -58,16 +67,19 @@ const createTagPages = ({ actions, posts }) => {
     .forEach(tag => {
       actions.createPage({
         path: `/tags/${tag}`,
-        component: path.resolve(`src/templates/shortListing.js`),
+        component: path.resolve(`src/templates/shortPostListing.js`),
         context: {
           title: `Tag: ${tag}`,
-          filter: { frontmatter: { tags: { in: [tag] } } }
+          filter: {
+            frontmatter: { tags: { in: [tag] } },
+            ...sourceFilesystemFilters.posts
+          }
         }
       })
     })
 }
 
-const createListingPages = ({ actions, posts, limit = 5 }) => {
+const createPostListingPages = ({ actions, posts, limit = 5 }) => {
   const totalPages = Math.ceil(posts.length / limit)
   Array.from({ length: totalPages }).forEach((_, i) => {
     const currentPage = i + 1
@@ -79,15 +91,23 @@ const createListingPages = ({ actions, posts, limit = 5 }) => {
         limit,
         skip: i * limit,
         totalPages,
-        currentPage
+        currentPage,
+        filter: {
+          ...sourceFilesystemFilters.posts
+        }
       }
     })
   })
 
   actions.createPage({
     path: `/full`,
-    component: path.resolve(`src/templates/shortListing.js`),
-    context: { title: `All Posts` }
+    component: path.resolve(`src/templates/shortPostListing.js`),
+    context: {
+      title: `All Posts`,
+      filter: {
+        ...sourceFilesystemFilters.posts
+      }
+    }
   })
 }
 
@@ -110,12 +130,51 @@ const createPostFields = ({ actions, node, getNode }) => {
   createNodeField({ node, name: `slug`, value: `/${dateSlug}/${title}` })
 }
 
+const createProjectPages = ({ actions, projects }) => {
+  projects.forEach(project => {
+    actions.createPage({
+      path: project.fields.slug,
+      component: path.resolve(`src/templates/project.js`),
+      context: {
+        slug: project.fields.slug
+      }
+    })
+  })
+}
+
+const createProjectListingPages = ({ actions, projects }) => {
+  actions.createPage({
+    path: `/projects`,
+    component: path.resolve(`src/templates/projectListing.js`),
+    context: {
+      title: `Projects`,
+      filter: {
+        ...sourceFilesystemFilters.projects
+      }
+    }
+  })
+}
+
+const createProjectFields = ({ actions, node, getNode }) => {
+  const { createNodeField } = actions
+
+  const filename = createFilePath({ node, getNode })
+  const title = path.basename(filename, ".md")
+
+  createNodeField({ node, name: `slug`, value: `/projects/${title}` })
+}
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
+  const stringify = obj => JSON.stringify(obj).replace(/"([^"]+)":/g, "$1:")
+
   const results = await graphql(`
     query {
-      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      Posts: allMarkdownRemark(
+        filter: ${stringify(sourceFilesystemFilters.posts)}
+        sort: { order: DESC, fields: [frontmatter___date] }
+      ) {
         edges {
           node {
             html
@@ -129,6 +188,20 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+
+      Projects: allMarkdownRemark(
+        filter: ${stringify(sourceFilesystemFilters.projects)}
+        sort: { order: DESC, fields: [frontmatter___title] }
+      ) {
+        edges {
+          node {
+            html
+            fields {
+              slug
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -137,14 +210,22 @@ exports.createPages = async ({ graphql, actions }) => {
     return
   }
 
-  const posts = results.data.allMarkdownRemark.edges.map(({ node }) => node)
-  createListingPages({ actions, posts })
-  createTagPages({ actions, posts })
+  const posts = results.data.Posts.edges.map(n => n.node)
+  createPostListingPages({ actions, posts })
+  createPostTagPages({ actions, posts })
   createPostPages({ actions, posts })
+
+  const projects = results.data.Projects.edges.map(n => n.node)
+  createProjectListingPages({ actions, projects })
+  createProjectPages({ actions, projects })
 }
 
 exports.onCreateNode = ({ node, ...rest }) => {
   if (node.internal.type === `MarkdownRemark`) {
-    createPostFields({ node, ...rest })
+    if (node.frontmatter.date) {
+      createPostFields({ node, ...rest })
+    } else {
+      createProjectFields({ node, ...rest })
+    }
   }
 }
