@@ -10,7 +10,7 @@ export default ({ posts }) => (
             {post.frontmatter.title}
             {post.frontmatter.date && (
               <>
-                {" "}
+                <br />
                 <small>{post.frontmatter.date}</small>
               </>
             )}
