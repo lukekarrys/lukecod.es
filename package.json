@@ -1,12 +1,15 @@
 {
   "name": "lukecod.es",
-  "private": true,
   "description": "Luke's code blog.",
   "version": "0.1.0",
   "author": "Luke Karrys",
+  "bugs": {
+    "url": "https://github.com/lukekarrys/lukecod.es/issues"
+  },
   "dependencies": {
     "gatsby": "^2.18.7",
     "gatsby-image": "^2.2.34",
+    "gatsby-plugin-catch-links": "^2.2.1",
     "gatsby-plugin-manifest": "^2.2.31",
     "gatsby-plugin-no-javascript": "^2.0.5",
     "gatsby-plugin-offline": "^3.0.27",
@@ -31,28 +34,27 @@
     "turbolinks": "^5.3.0-beta.1"
   },
   "devDependencies": {
+    "if-env": "^1.0.4",
     "prettier": "^1.19.1"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "build:remove-gatsby-js": "rm -rf public/*.{js,js.map,json} && rm -rf public/page-data",
-    "build:turbolinks": "terser node_modules/turbolinks/dist/turbolinks.js > public/turbolinks.js",
-    "postbuild": "npm run build:remove-gatsby-js && npm run build:turbolinks",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
-  },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/lukekarrys/lukecod.es.git"
   },
-  "bugs": {
-    "url": "https://github.com/lukekarrys/lukecod.es/issues"
+  "scripts": {
+    "build": "gatsby build",
+    "build:remove-gatsby-js": "if-env TURBOLINKS=true || if-env NOJS=true && rm -rf public/*.{js,js.map,json} && rm -rf public/page-data || echo 'Not removing Gatsby JS'",
+    "build:turbolinks": "if-env TURBOLINKS=true && terser node_modules/turbolinks/dist/turbolinks.js > public/turbolinks.js || echo 'Not building Turbolinks'",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "postbuild": "npm run build:remove-gatsby-js && npm run build:turbolinks",
+    "serve": "gatsby serve",
+    "start": "npm run develop"
   }
 }

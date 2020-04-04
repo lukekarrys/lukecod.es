@@ -1,3 +1,6 @@
+const TURBOLINKS = process.env.TURBOLINKS === "true"
+const NOJS = process.env.NOJS === "true"
+
 module.exports = {
   siteMetadata: {
     title: `Luke Codes`,
@@ -83,6 +86,9 @@ module.exports = {
         ]
       }
     },
-    "gatsby-plugin-no-javascript"
-  ]
+    {
+      resolve: `gatsby-plugin-catch-links`
+    },
+    (TURBOLINKS || NOJS) && "gatsby-plugin-no-javascript"
+  ].filter(Boolean)
 }

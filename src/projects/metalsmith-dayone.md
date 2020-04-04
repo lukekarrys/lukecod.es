@@ -3,7 +3,7 @@ type: project
 title: metalsmith-dayone
 gh:
   - lukekarrys/metalsmith-dayone
-blog: "http://lukecod.es/2016/12/06/building-a-day-one-journal-as-a-static-site/"
+blog: "/2016/12/06/building-a-day-one-journal-as-a-static-site/"
 link: "http://metalsmith-dayone.lukecod.es"
 ---
 

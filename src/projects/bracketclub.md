@@ -3,7 +3,7 @@ type: project
 title: bracket.club
 gh:
   - bracketclub
-blog: "http://lukecod.es/2014/01/25/tweet-your-bracket/"
+blog: "/2014/01/25/tweet-your-bracket/"
 link: "http://bracket.club"
 tw: bracketclub
 ---

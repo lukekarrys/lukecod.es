@@ -3,7 +3,7 @@ type: project
 title: npm-v0-finder
 gh:
   - lukekarrys/npm-v0-finder
-blog: "http://lukecod.es/2014/08/15/finding-all-your-npm-v0-packages/"
+blog: "/2014/08/15/finding-all-your-npm-v0-packages/"
 link: "http://v0.lukecod.es"
 ---
 
