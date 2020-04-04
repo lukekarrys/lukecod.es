@@ -4,14 +4,39 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default ({ data: { project }, pageContext }) => {
+  const { frontmatter: meta, html } = project
+
+  const links = [
+    ...(meta.gh || []).map(l => ({
+      href: `https://github.com/${l}`,
+      children: "GitHub"
+    })),
+    ...(meta.npm || []).map(l => ({
+      href: `https://npmjs.com/package/${l}`,
+      children: "npm"
+    })),
+    meta.link && { href: meta.link, children: "Link" },
+    meta.blog && { href: meta.blog, children: "Blog" },
+    meta.tw && { href: `https://twitter.com/${meta.tw}`, children: "Twitter" }
+  ].filter(Boolean)
+
   return (
     <Layout>
-      <SEO title={project.frontmatter.title} />
+      <SEO title={meta.title} />
       <div className="post">
-        <h1 className="post-title">{project.frontmatter.title}</h1>
+        <h1 className="post-title">{meta.title}</h1>
+        {links.length && (
+          <p className="categories">
+            {links.map(l => (
+              <a className="category" key={l.href} href={l.href}>
+                {l.children}
+              </a>
+            ))}
+          </p>
+        )}
         <div
           className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: project.html }}
+          dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
     </Layout>
@@ -24,6 +49,11 @@ export const query = graphql`
       html
       frontmatter {
         title
+        gh
+        npm
+        link
+        blog
+        tw
       }
     }
   }

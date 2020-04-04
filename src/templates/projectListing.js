@@ -41,7 +41,7 @@ export default ({ data, pageContext }) => {
 export const query = graphql`
   query($filter: MarkdownRemarkFilterInput) {
     projects: allMarkdownRemark(
-      sort: { fields: [frontmatter___title], order: DESC }
+      sort: { fields: [frontmatter___title], order: ASC }
       filter: $filter
     ) {
       edges {

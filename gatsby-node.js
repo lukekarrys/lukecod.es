@@ -184,6 +184,8 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             frontmatter {
               tags
+              title
+              date
             }
           }
         }
