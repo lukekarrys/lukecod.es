@@ -41,6 +41,14 @@ const Layout = ({ children }) => {
             </Link>
             <a
               className="sidebar-nav-item"
+              href="https://lukekarrys.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              About Me
+            </a>
+            <a
+              className="sidebar-nav-item"
               href="https://github.com/lukekarrys"
               target="_blank"
               rel="noopener noreferrer"
