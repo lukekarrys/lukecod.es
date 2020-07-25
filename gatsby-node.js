@@ -215,7 +215,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   `)
 
   if (results.errors) {
-    reporter.panicOnBuild(`Error while running allMarkdownRemark query`)
+    reporter.panicOnBuild(result.errors)
     return
   }
 
