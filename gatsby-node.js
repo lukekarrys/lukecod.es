@@ -2,13 +2,21 @@ const path = require("path")
 const _ = require("lodash")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const srcPath = (...parts) => path.join(__dirname, "src", ...parts)
+const regexPath = (...parts) => `/${srcPath(...parts)}//`
+
 const sourceFilesystemFilters = {
   posts: {
-    fileAbsolutePath: { regex: `/${path.join(__dirname, "src", "posts")}/` },
+    fileAbsolutePath: {
+      regex: regexPath("posts"),
+    },
     fields: { draft: { eq: false } },
   },
   projects: {
-    fileAbsolutePath: { regex: `/${path.join(__dirname, "src", "projects")}/` },
+    fileAbsolutePath: {
+      regex: regexPath("projects"),
+    },
+    fields: { draft: { eq: false } },
   },
 }
 
@@ -166,8 +174,6 @@ const createProjectFields = ({ actions, node, getNode }) => {
 }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
-
   const stringify = (obj) => JSON.stringify(obj).replace(/"([^"]+)":/g, "$1:")
 
   const results = await graphql(`
