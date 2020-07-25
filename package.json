@@ -35,6 +35,8 @@
     "turbolinks": "^5.3.0-beta.1"
   },
   "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-plugin-react": "^7.20.3",
     "if-env": "^1.0.4",
     "prettier": "^2.0.5"
   },
@@ -53,6 +55,7 @@
     "build:turbolinks": "if-env TURBOLINKS=true && terser node_modules/turbolinks/dist/turbolinks.js > public/turbolinks.js || echo 'Not building Turbolinks'",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
+    "eslint": "eslint . --fix",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "postbuild": "npm run build:remove-gatsby-js && npm run build:turbolinks",
     "serve": "gatsby serve",

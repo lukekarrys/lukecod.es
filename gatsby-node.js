@@ -47,7 +47,7 @@ const fixDeepLinksInExcerpts = (post) => {
   // In excerpts, replace in-post links with a link to the post+the link
   // so thats links from listing pages work
   post.excerpt = post.excerpt.replace(
-    /href="#([\w\-]+)"/gi,
+    /href="#([\w-]+)"/gi,
     `href="${post.fields.slug}#$1"`
   )
 }
@@ -151,7 +151,7 @@ const createProjectPages = ({ actions, projects }) => {
   })
 }
 
-const createProjectListingPages = ({ actions, projects }) => {
+const createProjectListingPages = ({ actions }) => {
   actions.createPage({
     path: `/projects`,
     component: path.resolve(`src/templates/projectListing.js`),
@@ -215,7 +215,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   `)
 
   if (results.errors) {
-    reporter.panicOnBuild(result.errors)
+    reporter.panicOnBuild(results.errors)
     return
   }
 

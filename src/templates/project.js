@@ -3,21 +3,21 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export default ({ data: { project }, pageContext }) => {
+export default ({ data: { project } }) => {
   const { frontmatter: meta, html } = project
 
   const links = [
-    ...(meta.gh || []).map(l => ({
+    ...(meta.gh || []).map((l) => ({
       href: `https://github.com/${l}`,
-      children: "GitHub"
+      children: "GitHub",
     })),
-    ...(meta.npm || []).map(l => ({
+    ...(meta.npm || []).map((l) => ({
       href: `https://npmjs.com/package/${l}`,
-      children: "npm"
+      children: "npm",
     })),
     meta.link && { href: meta.link, children: "Link" },
     meta.blog && { href: meta.blog, children: "Blog" },
-    meta.tw && { href: `https://twitter.com/${meta.tw}`, children: "Twitter" }
+    meta.tw && { href: `https://twitter.com/${meta.tw}`, children: "Twitter" },
   ].filter(Boolean)
 
   return (
@@ -27,7 +27,7 @@ export default ({ data: { project }, pageContext }) => {
         <h1 className="post-title">{meta.title}</h1>
         {links.length && (
           <p className="categories">
-            {links.map(l => (
+            {links.map((l) => (
               <a className="category" key={l.href} href={l.href}>
                 {l.children}
               </a>
