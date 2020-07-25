@@ -10,7 +10,7 @@ tags: [project, javascript, statemachine]
 
 A project that started as a way to keep up with a daily live show during quarantine, and then morphed into a YouTube player that excels at playlists full of multi-song videos. It lets you shuffle, repeat, set up next songs, and share your currently queue order with friends.
 
-Technically, I had fun building it with `@xstate/fsm` and `TypeScript` and trying to keep the size as small as possible. I think the CSS is around 3kb and the JS is 22kb. I originally put it together as some [spaghetti-code-script-tag-in-html proof-of-concept](https://github.com/lukekarrys/livefromquarantine.club/blob/2b63fb3f695e7a270adac15f183ba717360e0047/public/app.js) in a few hours. And then once I started hitting fun race condition bugs and couldn't easily implement the features I wanted, I had to rewrite it.
+Technically, I had fun building it with `@xstate/fsm` and `TypeScript` and trying to keep the size as small as possible. I think the CSS is around 3kb and the JS is 22kb. I originally put it together as some [spaghetti-code-script-tag-in-html proof-of-concept](https://github.com/lukekarrys/livefromquarantine.club/tree/0cf311d788b7fdde48d8566d26e49b216996c64a) in a few hours. And then once I started hitting fun race condition bugs and couldn't easily implement the features I wanted, I had to rewrite it.
 
 <!-- more -->
 
