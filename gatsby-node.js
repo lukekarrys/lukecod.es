@@ -4,37 +4,38 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 const sourceFilesystemFilters = {
   posts: {
-    fileAbsolutePath: { regex: `/${path.join(__dirname, "src", "posts")}/` }
+    fileAbsolutePath: { regex: `/${path.join(__dirname, "src", "posts")}/` },
+    fields: { draft: { eq: false } },
   },
   projects: {
-    fileAbsolutePath: { regex: `/${path.join(__dirname, "src", "projects")}/` }
-  }
+    fileAbsolutePath: { regex: `/${path.join(__dirname, "src", "projects")}/` },
+  },
 }
 
 const findRelatedPosts = ({ post, posts }) => {
-  const otherPosts = _.reject(posts, p => p.fields.slug === post.fields.slug)
+  const otherPosts = _.reject(posts, (p) => p.fields.slug === post.fields.slug)
 
   const relatedPosts = _.chain(otherPosts)
-    .map(p => ({
+    .map((p) => ({
       ...p,
       // Related posts are included based on the number of shared tags
-      relatedPosts: _.intersection(p.frontmatter.tags, post.frontmatter.tags)
+      relatedPosts: _.intersection(p.frontmatter.tags, post.frontmatter.tags),
     }))
     // Filter out posts with no shared tags
-    .filter(p => p.relatedPosts.length)
+    .filter((p) => p.relatedPosts.length)
     // And order by the ones with the most shared tags
     // The original order of posts is by descending date so that will be the fallback
-    .orderBy(p => p.relatedPosts.length, "desc")
+    .orderBy((p) => p.relatedPosts.length, "desc")
     // Get the top 3
     .slice(0, 3)
     // Fill out the rest of the array with first 3 posts (which are by date desc)
-    .thru(arr => [...arr, ...otherPosts.slice(0, 3 - arr.length)])
+    .thru((arr) => [...arr, ...otherPosts.slice(0, 3 - arr.length)])
     .value()
 
   return relatedPosts
 }
 
-const fixDeepLinksInExcerpts = post => {
+const fixDeepLinksInExcerpts = (post) => {
   // In excerpts, replace in-post links with a link to the post+the link
   // so thats links from listing pages work
   post.excerpt = post.excerpt.replace(
@@ -44,15 +45,15 @@ const fixDeepLinksInExcerpts = post => {
 }
 
 const createPostPages = ({ actions, posts }) => {
-  posts.forEach(post => {
+  posts.forEach((post) => {
     fixDeepLinksInExcerpts(post)
     actions.createPage({
       path: post.fields.slug,
       component: path.resolve(`src/templates/post.js`),
       context: {
         slug: post.fields.slug,
-        relatedPosts: findRelatedPosts({ post, posts })
-      }
+        relatedPosts: findRelatedPosts({ post, posts }),
+      },
     })
   })
 }
@@ -64,7 +65,7 @@ const createPostTagPages = ({ actions, posts }) => {
         post.frontmatter.tags.reduce((acc, tag) => acc.add(tag), acc),
       new Set()
     )
-    .forEach(tag => {
+    .forEach((tag) => {
       actions.createPage({
         path: `/tags/${tag}`,
         component: path.resolve(`src/templates/shortPostListing.js`),
@@ -72,9 +73,9 @@ const createPostTagPages = ({ actions, posts }) => {
           title: `Tag: ${tag}`,
           filter: {
             frontmatter: { tags: { in: [tag] } },
-            ...sourceFilesystemFilters.posts
-          }
-        }
+            ...sourceFilesystemFilters.posts,
+          },
+        },
       })
     })
 }
@@ -93,9 +94,9 @@ const createPostListingPages = ({ actions, posts, limit = 5 }) => {
         totalPages,
         currentPage,
         filter: {
-          ...sourceFilesystemFilters.posts
-        }
-      }
+          ...sourceFilesystemFilters.posts,
+        },
+      },
     })
   })
 
@@ -105,9 +106,9 @@ const createPostListingPages = ({ actions, posts, limit = 5 }) => {
     context: {
       title: `All Posts`,
       filter: {
-        ...sourceFilesystemFilters.posts
-      }
-    }
+        ...sourceFilesystemFilters.posts,
+      },
+    },
   })
 }
 
@@ -124,20 +125,20 @@ const createPostFields = ({ actions, node, getNode }) => {
   const dateSlug = date.replace(/-/g, "/")
 
   node.frontmatter.tags = Array.isArray(node.frontmatter.tags)
-    ? node.frontmatter.tags.map(t => t.replace(/\s/g, "-"))
+    ? node.frontmatter.tags.map((t) => t.replace(/\s/g, "-"))
     : []
 
   createNodeField({ node, name: `slug`, value: `/${dateSlug}/${title}` })
 }
 
 const createProjectPages = ({ actions, projects }) => {
-  projects.forEach(project => {
+  projects.forEach((project) => {
     actions.createPage({
       path: project.fields.slug,
       component: path.resolve(`src/templates/project.js`),
       context: {
-        slug: project.fields.slug
-      }
+        slug: project.fields.slug,
+      },
     })
   })
 }
@@ -149,9 +150,9 @@ const createProjectListingPages = ({ actions, projects }) => {
     context: {
       title: `Projects`,
       filter: {
-        ...sourceFilesystemFilters.projects
-      }
-    }
+        ...sourceFilesystemFilters.projects,
+      },
+    },
   })
 }
 
@@ -164,10 +165,10 @@ const createProjectFields = ({ actions, node, getNode }) => {
   createNodeField({ node, name: `slug`, value: `/projects/${title}` })
 }
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  const stringify = obj => JSON.stringify(obj).replace(/"([^"]+)":/g, "$1:")
+  const stringify = (obj) => JSON.stringify(obj).replace(/"([^"]+)":/g, "$1:")
 
   const results = await graphql(`
     query {
@@ -212,12 +213,12 @@ exports.createPages = async ({ graphql, actions }) => {
     return
   }
 
-  const posts = results.data.Posts.edges.map(n => n.node)
+  const posts = results.data.Posts.edges.map((n) => n.node)
   createPostListingPages({ actions, posts })
   createPostTagPages({ actions, posts })
   createPostPages({ actions, posts })
 
-  const projects = results.data.Projects.edges.map(n => n.node)
+  const projects = results.data.Projects.edges.map((n) => n.node)
   createProjectListingPages({ actions, projects })
   createProjectPages({ actions, projects })
 }

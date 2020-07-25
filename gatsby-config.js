@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: `Luke Codes`,
     description: `The code blog of Luke Karrys.`,
-    author: `@lukekarrys`
+    author: `@lukekarrys`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -13,22 +13,22 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`
-      }
+        path: `${__dirname}/src/images`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/src/posts`
-      }
+        path: `${__dirname}/src/posts`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `projects`,
-        path: `${__dirname}/src/projects`
-      }
+        path: `${__dirname}/src/projects`,
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -41,8 +41,8 @@ module.exports = {
         background_color: `#6a9fb5`,
         theme_color: `#6a9fb5`,
         display: `minimal-ui`,
-        icon: `src/images/logo.png`
-      }
+        icon: `src/images/logo.png`,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -53,23 +53,23 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 820,
-              withWebp: true
-            }
+              withWebp: true,
+            },
           },
           {
             resolve: "gatsby-remark-embed-gist",
             options: {
               username: "lukekarrys",
-              includeDefaultCss: true
-            }
+              includeDefaultCss: true,
+            },
           },
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
               icon: false,
               maintainCase: false,
-              removeAccents: true
-            }
+              removeAccents: true,
+            },
           },
           {
             resolve: `gatsby-remark-prismjs`,
@@ -78,17 +78,19 @@ module.exports = {
               inlineCodeMarker: null,
               aliases: {},
               showLineNumbers: false,
-              noInlineHighlight: true
-            }
+              noInlineHighlight: true,
+            },
           },
+
           `gatsby-remark-smartypants`,
-          `gatsby-remark-static-images`
-        ]
-      }
+          `gatsby-remark-static-images`,
+        ],
+      },
     },
+    "gatsby-plugin-draft",
     {
-      resolve: `gatsby-plugin-catch-links`
+      resolve: `gatsby-plugin-catch-links`,
     },
-    (TURBOLINKS || NOJS) && "gatsby-plugin-no-javascript"
-  ].filter(Boolean)
+    (TURBOLINKS || NOJS) && "gatsby-plugin-no-javascript",
+  ].filter(Boolean),
 }
