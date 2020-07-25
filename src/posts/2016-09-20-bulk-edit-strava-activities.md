@@ -37,15 +37,15 @@ Here's an example that edits the description based on the elevation gain of the 
 
 ```js
 StravaBulkEdit.editAll({
-  action: function($row) {
+  action: function ($row) {
     // Set the description of each row to "Big climb!"
     $row.find("[name=description]").val("Big climb!")
   },
-  condition: function($row) {
+  condition: function ($row) {
     // Only set the description if the elevation is more than 1000
     var elevation = $row.find("li:contains(Elevation)").text()
     return parseInt(elevation.replace(/\D/g, ""), 10) > 1000
-  }
+  },
 })
 ```
 

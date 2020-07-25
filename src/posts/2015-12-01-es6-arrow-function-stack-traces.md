@@ -21,9 +21,9 @@ The answer that I found is: no.
 Here is the code I used and some screenshots of running it in Chrome, Node 5, and Chrome after transpiling it with Babel.
 
 ```js
-const x = arr => arr.map(Boolean)
-const y = arr => x(arr)
-const z = arr => y(arr)
+const x = (arr) => arr.map(Boolean)
+const y = (arr) => x(arr)
+const z = (arr) => y(arr)
 
 console.log(z([1, 1, 0]))
 console.log(z(5))

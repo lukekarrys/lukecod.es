@@ -9,7 +9,7 @@ exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
     [
       TURBOLINKS && IS_PROD && (
         <script defer src="/turbolinks.js" key="turbolinks"></script>
-      )
+      ),
     ].filter(Boolean)
   )
 }

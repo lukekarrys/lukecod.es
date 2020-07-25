@@ -25,7 +25,7 @@ export default ({ data: { post }, pageContext }) => {
         </p>
         <h2>Filed Under</h2>
         <p className="categories">
-          {post.frontmatter.tags.map(tag => (
+          {post.frontmatter.tags.map((tag) => (
             <Link key={tag} className="category" to={`/tags/${tag}`}>
               {tag}
             </Link>

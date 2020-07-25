@@ -8,22 +8,22 @@ Just some fun code to determine [Pascal's triangle](https://en.wikipedia.org/wik
 
 ```js
 // Utils
-const last = arr => arr[arr.length - 1]
-const withoutLast = arr => arr.slice(0, -1)
-const sumWithNext = arr => (val, index) => val + arr[index + 1]
+const last = (arr) => arr[arr.length - 1]
+const withoutLast = (arr) => arr.slice(0, -1)
+const sumWithNext = (arr) => (val, index) => val + arr[index + 1]
 
 // Sum the values from a row
-const createRowValues = arr => withoutLast(arr).map(sumWithNext(arr))
+const createRowValues = (arr) => withoutLast(arr).map(sumWithNext(arr))
 
 // Create row padded by the start values
 const createRow = (previous, start) => [
   start,
   ...createRowValues(previous),
-  start
+  start,
 ]
 
 // Appends a new row based on the last row
-const appendRow = start => rows => [...rows, createRow(last(rows), start)]
+const appendRow = (start) => (rows) => [...rows, createRow(last(rows), start)]
 
 // Takes a starting value and the number of rows and returns a nested array
 const pascal = (rows, start = 1) =>

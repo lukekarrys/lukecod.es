@@ -56,8 +56,8 @@
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "eslint": "eslint . --fix",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "postbuild": "npm run build:remove-gatsby-js && npm run build:turbolinks",
+    "prettier": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
     "start": "npm run develop"
   }

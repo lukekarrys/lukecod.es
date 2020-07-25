@@ -197,14 +197,14 @@ var ami = new AMI({
   port: "5060",
   host: "192.168.1.181",
   login: "admin",
-  password: "admin"
+  password: "admin",
 })
 ```
 
 And then the code that actually sends the **originate** action (aka the "make it ring" action) from **yana** uses the rest of our relevant asterisk configuration variables:
 
 ```js
-ami.on("FullyBooted", function(event) {
+ami.on("FullyBooted", function (event) {
   ami.send(
     {
       Action: "Originate",
@@ -212,9 +212,9 @@ ami.on("FullyBooted", function(event) {
       Exten: "1337",
       Context: "myphones",
       Priority: 1,
-      Timeout: 1000
+      Timeout: 1000,
     },
-    function() {
+    function () {
       console.log(ASCII_R2D2)
       console.log("WE CALLED R2D2!")
     }

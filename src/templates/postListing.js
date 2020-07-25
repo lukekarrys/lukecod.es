@@ -10,7 +10,7 @@ export default ({ data, pageContext }) => {
     <Layout>
       <SEO title={title} />
       <div className="posts">
-        {posts.map(post => (
+        {posts.map((post) => (
           <div key={post.fields.slug} className="post">
             <h1 className="post-title">
               <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
@@ -37,7 +37,7 @@ export default ({ data, pageContext }) => {
 }
 
 const Pagination = ({ currentPage, totalPages }) => {
-  const toIndex = p => (p === "/page1" ? "/" : p)
+  const toIndex = (p) => (p === "/page1" ? "/" : p)
   const hasOlder = currentPage < totalPages
   const hasNewer = currentPage > 1
 

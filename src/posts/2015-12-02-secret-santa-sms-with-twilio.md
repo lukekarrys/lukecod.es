@@ -39,14 +39,14 @@ I'm using Lodash's `reject` method to remove any people from the participants th
 ```js
 import { contains, reject, sample, clone, shuffle } from "lodash"
 
-const isMe = me => p => me.name === p.name
-const isSkip = me => p =>
+const isMe = (me) => (p) => me.name === p.name
+const isSkip = (me) => (p) =>
   Array.isArray(me.skip) ? contains(me.skip, p.name) : false
-const isUsed = used => p => contains(used, p.name)
-const rejector = ({ used, participant }) => p =>
+const isUsed = (used) => (p) => contains(used, p.name)
+const rejector = ({ used, participant }) => (p) =>
   isMe(participant)(p) || isSkip(participant)(p) || isUsed(used)(p)
 
-const pickRecipients = participants => {
+const pickRecipients = (participants) => {
   const results = []
   const used = []
   const shuffled = shuffle(participants)

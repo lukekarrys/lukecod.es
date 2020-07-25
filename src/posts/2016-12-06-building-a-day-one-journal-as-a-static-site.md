@@ -42,7 +42,7 @@ require("metalsmith")(__dirname)
   .destination("./build")
   .use(
     require("metalsmith-dayone")({
-      data: "./path/to/dayone.zip"
+      data: "./path/to/dayone.zip",
     })
   )
   .build()

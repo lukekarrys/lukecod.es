@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 export default ({ posts }) => (
   <ul className="related-posts">
-    {posts.map(post => (
+    {posts.map((post) => (
       <li key={post.fields.slug}>
         <h3>
           <Link to={post.fields.slug}>

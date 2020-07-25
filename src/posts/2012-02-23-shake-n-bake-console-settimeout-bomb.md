@@ -9,7 +9,7 @@ Apparently, everyone knows that setTimeout console bombs are the best. I didn't 
 <!-- more -->
 
 ```js
-;(function(d, w, t) {
+;(function (d, w, t) {
   word = w
   time = t
   s = d.createElement("script")
