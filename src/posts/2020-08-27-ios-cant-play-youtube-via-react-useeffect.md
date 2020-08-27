@@ -1,5 +1,5 @@
 ---
-title: "Safari Won't Play Video embeds via React useEffect"
+title: "Safari Won't Play Videos via React useEffect"
 date: 2020-08-27T08:27:23-07:00
 tags: [react, video, youtube, safari, hooks]
 ---
