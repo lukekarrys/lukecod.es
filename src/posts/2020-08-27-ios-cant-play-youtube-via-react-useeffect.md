@@ -6,7 +6,7 @@ tags: [react, video, youtube, safari, hooks]
 
 > #### TL;DR
 >
-> View [this example](codesandbox://safari-video-useeffect) in Safari to see how playing a video via `useEffect` won't work.
+> View [this example](codesandbox://safari-video-useeffect) in Safari to see how playing a video via `useEffect` won't work. If you're attempting to make a video play inside a React effect, use `useLayoutEffect`.
 
 ## useEffect vs useLayoutEffect
 
@@ -63,17 +63,19 @@ const PlayVideo = () => {
 
 In other browsers like Chrome, both effects will work to play the video. But in Safari, only the `useLayoutEffect` will work. Even though `play()` is called via the `onClick` handler, Safari doesn't see the `play()` call as the direct result of the click handler.
 
+In order to get the video to play, **you need to call `play()` from `useLayoutEffect` or directly in the `onClick` handler**.
+
 ## YouTube
 
 This also partially applies to the YouTube Player API. If you try to call `ytPlayer.playVideo()` inside `useEffect` a similar thing will happen. On iOS, the player will not start, but on macOS both the `useEffect` and `useLayoutEffect` handlers will behave the same.
 
 [Here's another example using the YouTube Player API.](codesandbox://safari-youtube-useeffect)
 
-## Conclusing
+## Conclusion
 
-In hindsight, this is all obvious but it wasn't when developing my app. It stumped me and wasn't something I realized until walking around the house the next day.
+In hindsight, this seems obvious but it wasn't when I first ran into the issue in an application. It stumped me and wasn't something I realized until walking around the house the next day.
 
 A few lessons that I learned from this:
 
-- The example called out in the React docs is the most likely reason to use `useLayoutEffect` but it makes sense to learn what is happening under the hood so that cases like this are more immediately clear what's happening.
-- As always, reducing error cases as much as possible. I first encountered the behavior when using the YouTube player but if I had reduced the case to using a plain `<video>` element I would've gotten the much nicer error from Safari: `The request is not allowed by the user agent or the platform in the current context, possibly because the user denied permission.` Good error messages are very important.
+- The example called out in the React docs is the most likely reason to use `useLayoutEffect` but it makes sense to learn what is happening under the hood so that cases like this are more immediately clear what's happening. This probably applies to all APIs.
+- As always, reducing error cases as much as possible is very helpful. I first encountered the behavior when using the YouTube player but if I had reduced the case to using a plain `<video>` element I would've gotten this much nicer error from Safari: `The request is not allowed by the user agent or the platform in the current context, possibly because the user denied permission.` Good error messages are very important.
