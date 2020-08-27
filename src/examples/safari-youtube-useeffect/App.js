@@ -22,7 +22,7 @@ const App = () => {
     <div>
       <h1>iOS - YouTube iFrame API play via effect / layoutEffect / onClick</h1>
       <p>
-        The "play effect" button will not start the video on iOS. use the
+        The "play effect" button will not start the video in iOS Safari. use the
         "useLayoutEffect" hook or an event handler
       </p>
       <div ref={playerRef} />
@@ -32,9 +32,9 @@ const App = () => {
             <button onClick={() => window.location.reload()}>Reset</button>
           ) : (
             <React.Fragment>
-              <button onClick={() => setPlay(true)}>play - effect</button>
+              <button onClick={() => setPlay(true)}>play - useEffect</button>
               <button onClick={() => setPlayLayout(true)}>
-                play - layout effect
+                play - useLayoutEffect
               </button>
               <button
                 onClick={() => {
