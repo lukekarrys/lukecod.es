@@ -81,7 +81,13 @@ module.exports = {
               noInlineHighlight: true,
             },
           },
-
+          {
+            resolve: "gatsby-remark-codesandbox-repl",
+            options: {
+              target: "_blank",
+              directory: `${__dirname}/src/examples/`,
+            },
+          },
           `gatsby-remark-smartypants`,
           `gatsby-remark-static-images`,
         ],

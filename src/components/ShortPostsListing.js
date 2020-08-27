@@ -8,10 +8,12 @@ export default ({ posts }) => (
         <h3>
           <Link to={post.fields.slug}>
             {post.frontmatter.title}
-            {post.frontmatter.date && (
+            {(post.frontmatter.prettyDate || post.frontmatter.date) && (
               <>
                 <br />
-                <small>{post.frontmatter.date}</small>
+                <small>
+                  {post.frontmatter.prettyDate || post.frontmatter.date}
+                </small>
               </>
             )}
           </Link>

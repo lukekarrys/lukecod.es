@@ -193,6 +193,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               tags
               title
               date
+              prettyDate: date(formatString: "MMMM DD, YYYY")
             }
           }
         }

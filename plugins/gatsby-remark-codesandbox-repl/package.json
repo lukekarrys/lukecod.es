@@ -1,0 +1,32 @@
+{
+  "name": "gatsby-remark-code-repls",
+  "description": "Gatsby plugin to auto-generate links to popular REPLs like Babel and Codepen",
+  "version": "3.2.11",
+  "author": "Brian Vaughn <brian.david.vaughn@gmail.com>",
+  "dependencies": {
+    "@babel/runtime": "^7.10.3",
+    "@nodelib/fs.walk": "^1.2.4",
+    "lz-string": "^1.4.4",
+    "normalize-path": "^3.0.0",
+    "npm-package-arg": "^6.1.1",
+    "recursive-readdir": "^2.2.2",
+    "unist-util-map": "^1.0.5",
+    "urijs": "^1.19.2"
+  },
+  "keywords": [
+    "babel",
+    "codepen",
+    "gatsby",
+    "gatsby-plugin",
+    "remark",
+    "repl"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "peerDependencies": {
+    "gatsby": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=10.13.0"
+  }
+}

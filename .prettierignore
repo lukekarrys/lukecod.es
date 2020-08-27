@@ -1,4 +1,6 @@
 .cache
-package.json
-package-lock.json
+/package.json
+/package-lock.json
 public
+plugins/**/package-lock.json
+plugins/**/package.json
