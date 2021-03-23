@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ShortPostsListing from "../components/ShortPostsListing"
 
-export default ({ data, pageContext }) => {
+const ShortPostListing = ({ data, pageContext }) => {
   const posts = data.posts.edges.map(({ node }) => node)
   const { title } = pageContext
   return (
@@ -15,6 +15,8 @@ export default ({ data, pageContext }) => {
     </Layout>
   )
 }
+
+export default ShortPostListing
 
 export const query = graphql`
   query($limit: Int, $skip: Int, $filter: MarkdownRemarkFilterInput) {

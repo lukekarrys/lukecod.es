@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export default ({ data: { project } }) => {
+const Project = ({ data: { project } }) => {
   const { frontmatter: meta, html } = project
 
   const links = [
@@ -42,6 +42,8 @@ export default ({ data: { project } }) => {
     </Layout>
   )
 }
+
+export default Project
 
 export const query = graphql`
   query($slug: String) {

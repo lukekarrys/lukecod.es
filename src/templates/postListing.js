@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export default ({ data, pageContext }) => {
+const PostListing = ({ data, pageContext }) => {
   const posts = data.posts.edges.map(({ node }) => node)
   const { title, currentPage, totalPages } = pageContext
   return (
@@ -35,6 +35,8 @@ export default ({ data, pageContext }) => {
     </Layout>
   )
 }
+
+export default PostListing
 
 const Pagination = ({ currentPage, totalPages }) => {
   const toIndex = (p) => (p === "/page1" ? "/" : p)

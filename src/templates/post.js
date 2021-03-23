@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ShortPostsListing from "../components/ShortPostsListing"
 
-export default ({ data: { post }, pageContext }) => {
+const Post = ({ data: { post }, pageContext }) => {
   const { relatedPosts } = pageContext
   return (
     <Layout>
@@ -41,6 +41,8 @@ export default ({ data: { post }, pageContext }) => {
     </Layout>
   )
 }
+
+export default Post
 
 export const query = graphql`
   query($slug: String) {
