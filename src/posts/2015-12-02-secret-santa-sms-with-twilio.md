@@ -4,6 +4,10 @@ date: 2015-12-02 11:07:56
 tags: [twilio, sms]
 ---
 
+> #### Update 11/29/21
+>
+> This project is still alive but the instructions in this blog post are out of date. Visit [the GitHub repo](https://github.com/lukekarrys/secret-santa-twilio) for the latest instructions on how to run it.
+
 > #### TL;DR
 >
 > Use [this code](https://github.com/lukekarrys/secret-santa-twilio) to pick Secret Santas over SMS with [Twilio](https://www.twilio.com/).
